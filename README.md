@@ -4,6 +4,28 @@
 Git ist ein verteiltes Versionenkontrollsystem, dass vor allem in der Softwareentwicklung für das Verwalten von Dateien genutzt wird. Dabei speichert Git jede Änderung im Quellcode, sodass man jederzeit zu einer früheren Version zurückkehren kann. Außerdem vereinfacht es die Zusammenarbeit im Team, da mehrere Entwickler gleichzeitig am selben Projekt arbeiten können. Dateiänderungen können lokal vorgenommen werden und dann an das zentrale Repository übermittelt werden, womit die Änderungen für alle Entwickler sichtbar werden.
 
 # Grundlegende Git-Befehle (z. B. git init, git add, git commit, git push): Mirjam
+
+- **git init** – Neues Repository erstellen
+- **git clone** <repository-url> – Bestimmtes Repository clonen
+
+- **git log** – Historie der Commits
+- **git status** - Überblick über das Repository, Änderungen, Branch-Informationen etc.
+- **git diff** - Zeigt Unterschiede zwischen Branches, Commits etc. 
+
+- **git add <Dateiname>** - Dateien zum Staging-Bereich hinzugügen
+- **git commit -m „kurze Beschreibung der Änderungen“** - Änderungen speichern/committen
+- **git pull** – Änderungen synchronisieren/vom Remote-Repository abrufen
+- **git push** -  Änderungen an das Remote Repository senden
+
+- **git branch <branch-name>** - Neuen Branch erstellen
+- **git checkout <branch-name>** - Zu einem anderen Branch wechseln
+- **git checkout -b <branch-name>** - Neuen Branch erstellen und direkt wechseln
+- **git merge <branch-name>** - Branch mit den aktuellen Branch zusammenführen
+
+- **git reset --<commit-hash>** -  Branch wird auf bestimmten Commit zurückgesetzt, behält die Änderungen in der Arbeitskopie und Staging-  Bereich bei. 
+- **git reset --hard <commit-hash>** - Alle uncommitteten Änderungen im Branch (in der Arbeitskopie und im Staging-Bereich)  werden gelöscht und auf einen bestimmten Commit zurückgesetzt
+- **git checkout <commit-hash>** -- <dateiname> - Wiederherstellung eines früheren Commit
+
 # Branches und ihre Nutzung, Umgang mit Merge-Konflikten: Nele
 ## Branches und ihre Nutzung
 **Branches** sind unabhängige Entwicklungsumgebungen in Git, die es Entwickler*innen ermöglicht, parallel an verschiedenen Features und Aufgaben zu arbeiten ohne den Hauptzweig durcheinanderzubringen. Ein Branch ist im Wesentlichen ein separater Entwicklungszweig, der von einem bestimmten Punkt im Projektverlauf abzweigt.
