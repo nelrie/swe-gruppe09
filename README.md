@@ -9,10 +9,10 @@ Git ist ein verteiltes Versionenkontrollsystem, dass vor allem in der Softwareen
 
 # Nützliche Git-Tools und Plattformen (z. B. GitHub) Samantha
 
-GitHub: Ist eine webbasierte Plattform für die Verwaltung von Git-Repositories. Entwickler können ihre Projekte online speichern, verwalten und mit anderen teilen.
-GitLab: Ist eine DevOPs-Plattform, die den gesamten Softwareentwicklungsprozess abdeckt. Sie bietet alles von Projektplanung und Quellcodeverwaltung bis hin zu CI/CD, Überwachung und Sicherheit. Es gibt eine Cloud-basierte Version sowie die Möglichkeit, die Plattform selbst zu hosten.
-GitKraken: Ist ein Git-Client mit einer grafischen Benutzeroberfläche, der Git-Funktionen wie Versionskontrolle, Branching und Merging, ohne Nutzung der Befehlszeile ermöglicht.
-Git Extensions: Ist ein Tool mit grafischer Benutzeroberfläche, für die Verwaltung von Git-Repositoires unter Windows, Linux und macOS. Es hat verschiedene Funktionen zur Verwaltung von Repositories, Branches und Merges.
-Git Bash: Ist eine Befehlszeilenoberfläche, die es Entwicklern ermöglicht unter Windows gängige Unix-Befehle zu verwenden.
-TortoiseGit: Ist eine grafische Benutzeroberfläche für Git, speziell für Windows. Git-Funktionalitäten werden in den Windows Explorer integriert, Entwickler können ihr Repository direkt über das Kontextmenü verwalten.
+- GitHub: Ist eine webbasierte Plattform für die Verwaltung von Git-Repositories. Entwickler können ihre Projekte online speichern, verwalten und mit anderen teilen.
+- GitLab: Ist eine DevOPs-Plattform, die den gesamten Softwareentwicklungsprozess abdeckt. Sie bietet alles von Projektplanung und Quellcodeverwaltung bis hin zu CI/CD, Überwachung und Sicherheit. Es gibt eine Cloud-basierte Version sowie die Möglichkeit, die Plattform selbst zu hosten.
+- GitKraken: Ist ein Git-Client mit einer grafischen Benutzeroberfläche, der Git-Funktionen wie Versionskontrolle, Branching und Merging, ohne Nutzung der Befehlszeile ermöglicht.
+- Git Extensions: Ist ein Tool mit grafischer Benutzeroberfläche, für die Verwaltung von Git-Repositoires unter Windows, Linux und macOS. Es hat verschiedene Funktionen zur Verwaltung von Repositories, Branches und Merges.
+- Git Bash: Ist eine Befehlszeilenoberfläche, die es Entwicklern ermöglicht unter Windows gängige Unix-Befehle zu verwenden.
+- TortoiseGit: Ist eine grafische Benutzeroberfläche für Git, speziell für Windows. Git-Funktionalitäten werden in den Windows Explorer integriert, Entwickler können ihr Repository direkt über das Kontextmenü verwalten.
 
