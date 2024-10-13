@@ -15,6 +15,10 @@
 **git checkout -b <branch-name>** - Neuen Branch erstellen und direkt wechseln
 **git merge <branch-name>** - Branch mit den aktuellen Branch zusammenführen
 
+**git reset --<commit-hash>** -  Branch wird auf bestimmten Commit zurückgesetzt, behält die Änderungen in der Arbeitskopie und Staging-  Bereich bei. 
+**git reset --hard <commit-hash>** - Alle uncommitteten Änderungen im Branch (in der Arbeitskopie und im Staging-Bereich)  werden gelöscht und auf einen bestimmten Commit zurückgesetzt
+**git checkout <commit-hash>** -- <dateiname> - Wiederherstellung eines früheren Commit
+
 # Branches und ihre Nutzung, Umgang mit Merge-Konflikten: Nele
 # Git mit IntelliJ/PyCharm benutzen: Local Repository und Remote Repository: Maylin
 # Nützliche Git-Tools und Plattformen (z. B. GitHub) Samantha
