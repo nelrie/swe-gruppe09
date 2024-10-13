@@ -2,8 +2,8 @@
 # Was ist Git und warum sollte es verwendet werden? Samantha
 # Grundlegende Git-Befehle (z. B. git init, git add, git commit, git push): Mirjam
 
--**git init** – Neues Repository erstellen
--**git clone** <repository-url> – Bestimmtes Repository clonen
+- **git init** – Neues Repository erstellen
+- **git clone** <repository-url> – Bestimmtes Repository clonen
 
 **git log** – Historie der Commits
 **git status** - Überblick über das Repository, Änderungen, Branch-Informationen etc.
