@@ -5,6 +5,10 @@
 -**git init** – Neues Repository erstellen
 -**git clone** <repository-url> – Bestimmtes Repository clonen
 
+**git log** – Historie der Commits
+**git status** - Überblick über das Repository, Änderungen, Branch-Informationen etc.
+**git diff** - Zeigt Unterschiede zwischen Branches, Commits etc. 
+
 **git add <Dateiname>** - Dateien zum Staging-Bereich hinzugügen
 **git commit -m „kurze Beschreibung der Änderungen“** - Änderungen speichern/committen
 **git pull** – Änderungen synchronisieren/vom Remote-Repository abrufen
