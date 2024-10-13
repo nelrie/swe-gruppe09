@@ -27,6 +27,7 @@ Git ist ein verteiltes Versionenkontrollsystem, dass vor allem in der Softwareen
 - **git checkout <commit-hash>** -- <dateiname> - Wiederherstellung eines früheren Commit
 
 # Branches und ihre Nutzung, Umgang mit Merge-Konflikten: Nele
+
 ## Branches und ihre Nutzung
 **Branches** sind unabhängige Entwicklungsumgebungen in Git, die es Entwickler*innen ermöglicht, parallel an verschiedenen Features und Aufgaben zu arbeiten ohne den Hauptzweig durcheinanderzubringen. Ein Branch ist im Wesentlichen ein separater Entwicklungszweig, der von einem bestimmten Punkt im Projektverlauf abzweigt.
 ### Datenspeicherung in Git
@@ -53,7 +54,12 @@ Bei letztem, dem Zusammenführen von Branches, können Konflikte auftreten, wenn
 - **Konflikte beheben**: erfolgt manuell: öffne die betroffenen Dateien in einem Texteditor und entferne die Konfliktmarkierungen.
 - **Änderungen bestätigen**: `git add <datei>` und `git commit`
 
-# Git mit IntelliJ/PyCharm benutzen: Local Repository und Remote Repository: Maylin
+  
+## Git mit IntelliJ/PyCharm benutzen: Local Repository und Remote Repository
+**Local Repository:** Das lokale Repository befindet sich auf dem Computer und enthält alle Dateien und deren Commit-Verlauf. Dadurch sind alle vollständigen Diffs, Verlaufsüberprüfungen und Commits auch offline möglich. Dies ist eins der Hauptmerkmale einer "verteilten" Verionskontrollsystems (DVC), da der vollstände Repository-Verlauf lokal verfügbar ist.
+
+**Remote Repository:** Das Remote-Repository befindet sich normalerweise woanders und ist für ihre indirekte Verwendung bestimmt. Dabei befindet sich die Codebasis auf einem "zentralen" Server und die Personen rufen Dateien von dort ab und übernehmen sie. Git bezeichnet den zentralen Server als "Remote Repository". Das wird von Team gemeinsam genutzt und "pusht" Commits dorthin, wenn es bereit ist, sie mit dem Team zu teilen. 
+
 
 # Nützliche Git-Tools und Plattformen (z. B. GitHub) Samantha
 
