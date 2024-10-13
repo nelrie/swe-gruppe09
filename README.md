@@ -69,9 +69,9 @@ Bei letztem, dem Zusammenführen von Branches, können Konflikte auftreten, wenn
 - **Git Bash:** Ist eine Befehlszeilenoberfläche, die es Entwicklern ermöglicht unter Windows gängige Unix-Befehle zu verwenden.
 - **TortoiseGit:** Ist eine grafische Benutzeroberfläche für Git, speziell für Windows. Git-Funktionalitäten werden in den Windows Explorer integriert, Entwickler können ihr Repository direkt über das Kontextmenü verwalten.
 
-[!NOTE]
-Was ist Git und warum sollte es verwendet werden?, Samantha Rauhaus
-Grundlegende Git-Befehle, Mirjam Werner
-Branches und ihre Nutzung, Umgang mit Merge-Konflikten, Nele Riedesel
-Git mit IntelliJ/PyCharm benutzen: Local Repository und Remote Repository, Maylin Mittmann
-Nützliche Git-Tools und Plattformen, Samantha Rauhaus
+>[!NOTE]
+Was ist Git und warum sollte es verwendet werden?: Samantha Rauhaus <br>
+Grundlegende Git-Befehle: Mirjam Werner <br>
+Branches und ihre Nutzung: Umgang mit Merge-Konflikten: Nele Riedesel <br>
+Git mit IntelliJ/PyCharm benutzen: Local Repository und Remote Repository: Maylin Mittmann <br>
+Nützliche Git-Tools und Plattformen: Samantha Rauhaus
