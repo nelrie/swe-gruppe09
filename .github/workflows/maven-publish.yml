@@ -29,6 +29,10 @@ jobs:
           distribution: 'temurin'  # Alternativen: zulu, adopt, etc.
           java-version: '17'       # Wähle die Java-Version, z.B. 17 oder 11
 
+      # Optional: Navigiere in das Verzeichnis, falls pom.xml dort liegt
+      - name: Navigate to project directory
+        run: cd src/pom.xml
+
       # 3. Cache für Maven-Repository, um die Geschwindigkeit zu erhöhen
       - name: Cache Maven packages
         uses: actions/cache@v3
