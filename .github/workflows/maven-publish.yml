@@ -7,10 +7,10 @@ name: Maven CI
 on:
   pull_request:
     branches:
-      - main   # Wird bei Pull Requests auf 'main' ausgeführt
+      - zettel4_aufgabe2   # Wird bei Pull Requests auf 'zettel4_aufgabe2' ausgeführt
   push:
     branches:
-      - main   # Wird bei direktem Push auf 'main' ausgeführt
+      - zettel4_aufgabe2   # Wird bei direktem Push auf 'zettel4_aufgabe2' ausgeführt
 
 
 jobs:
