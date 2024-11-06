@@ -44,4 +44,4 @@ jobs:
 
       # 4. Baue das Projekt und führe die Tests aus
       - name: Build with Maven
-        run: mvn clean install -DskipTests=false -e  # Führt Tests aus
+        run: mvn clean install -DskipTests=false  # Führt Tests aus
