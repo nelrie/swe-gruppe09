@@ -29,10 +29,6 @@ jobs:
           distribution: 'temurin'  # Alternativen: zulu, adopt, etc.
           java-version: '17'       # Wähle die Java-Version, z.B. 17 oder 11
 
-        # Führe den Build-Befehl aus und gebe den richtigen Pfad zur pom.xml an
-    - name: Build with Maven
-      run: mvn -f src/pom.xml clean install -DskipTests=false
-
       # 3. Cache für Maven-Repository, um die Geschwindigkeit zu erhöhen
       - name: Cache Maven packages
         uses: actions/cache@v3
