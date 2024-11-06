@@ -29,9 +29,9 @@ jobs:
           distribution: 'temurin'  # Alternativen: zulu, adopt, etc.
           java-version: '17'       # Wähle die Java-Version, z.B. 17 oder 11
 
-      # Optional: Navigiere in das Verzeichnis, falls pom.xml dort liegt
-      - name: Navigate to project directory
-        run: cd src/pom.xml
+        # Führe den Build-Befehl aus und gebe den richtigen Pfad zur pom.xml an
+    - name: Build with Maven
+      run: mvn -f src/pom.xml clean install -DskipTests=false
 
       # 3. Cache für Maven-Repository, um die Geschwindigkeit zu erhöhen
       - name: Cache Maven packages
@@ -42,6 +42,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      # 4. Baue das Projekt und führe die Tests aus
-      - name: Build with Maven
-        run: mvn clean install -DskipTests=false  # Führt Tests aus
+           # Führe den Build-Befehl aus und gebe den richtigen Pfad zur pom.xml an
+    - name: Build with Maven
+      run: mvn -f src/pom.xml clean install -DskipTests=false
+
+      # Weitere Schritte, wenn du sie benötigst (z. B. Tests ausführen, Deploy usw.)
+    - name: Run tests
+      run: mvn -f src/pom.xml test
