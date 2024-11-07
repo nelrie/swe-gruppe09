@@ -1,4 +1,4 @@
-package feedback.respository;
+package feedback.repository;
 
 import feedback.domain.Feedback;
 
@@ -14,23 +14,13 @@ public class MockFeedbackRepository implements FeedbackRepository {
     }
 
 
-    @Override
-    public List<Feedback> findAll() {
-        return feedbackList;
-    }
-
-    @Override
-    public Feedback update(Feedback feedback) {
-        return null;
-    }
 
     @Override
     public Feedback findById(String feedbackID) {
-        for (Feedback feedback : feedbackList) {
+        for (Feedback feedback : feedbackList)
             if (feedback.getFeedbackID().equals(feedbackID)) {
                 return feedback;
             }
-        }
         return null;
     }
 

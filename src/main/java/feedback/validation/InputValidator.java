@@ -6,7 +6,7 @@ public class InputValidator {
 
     private static final String FIRSTNAME_PATTERN = "^[A-Za-z]+(-[A-Za-z]+)*$";
     private static final String LASTNAME_PATTERN = "^[A-Za-z]+(-[A-Za-z]+)*$";
-    private static final String EMAIL_PATTERN = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+    private static final String EMAIL_PATTERN = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\-[A-Za-z]{2,}$";
 
     public static boolean isValidFirstName(String firstName) {
         return Pattern.matches(FIRSTNAME_PATTERN, firstName);
