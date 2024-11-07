@@ -1,19 +1,29 @@
-package feedback.model;
+package feedback.domain;
 
 public class Feedback {
-    private Long id;
+    private String feedbackID;
     private String firstName;
     private String lastName;
     private String email;
     private String message;
 
-    //Getter und Setter für ID
-    public Long getId() {
-        return id;
+    public Feedback(String feedbackID, String firstName, String lastName, String email, String message) {
+        this.feedbackID = feedbackID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.message = message;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+
+
+    //Getter und Setter für ID
+    public String getFeedbackID() {
+        return feedbackID;
+    }
+
+    public void setFeedbackID(String feedbackID) {
+        this.feedbackID = feedbackID;
     }
 
 
@@ -21,7 +31,8 @@ public class Feedback {
     public String getFirstName() {
         return firstName;
     }
-    public void setfirstName(String firstName) {
+
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -30,6 +41,7 @@ public class Feedback {
     public String getLastName() {
         return lastName;
     }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
@@ -39,6 +51,7 @@ public class Feedback {
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
 
@@ -49,7 +62,11 @@ public class Feedback {
     public String getMessage() {
         return message;
     }
+
     public void setMessage(String message) {
         this.message = message;
     }
+
+
+
 }
