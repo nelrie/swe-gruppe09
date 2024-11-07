@@ -23,11 +23,15 @@
 
     <build>
         <plugins>
+            <!-- Konfiguration des Maven Compiler Plugins -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>  <!-- Stelle sicher, dass du eine unterstützte Version verwendest -->
+                <configuration>
+                    <source>17</source>  <!-- Deine Quell-Java-Version -->
+                    <target>17</target>  <!-- Deine Ziel-Java-Version -->
+                </configuration>
             </plugin>
         </plugins>
     </build>
-</project>
