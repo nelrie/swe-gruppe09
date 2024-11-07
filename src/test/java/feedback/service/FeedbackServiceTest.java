@@ -1,10 +1,9 @@
 package feedback.service;
 
 import feedback.domain.Feedback;
-import feedback.respository.FeedbackRepository;
-import feedback.respository.MockFeedbackRepository;
+import feedback.repository.FeedbackRepository;
+import feedback.repository.MockFeedbackRepository;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 public class FeedbackServiceTest {
 
@@ -20,7 +19,11 @@ public class FeedbackServiceTest {
         //Feedback-Objekt erstellen
         Feedback validFeedback = new Feedback("1", "Lisa-Marie", "Heufer-Umlauf", "lisa-marie.heufer-umlauf@gmail.com", "Ich liebe die Stadtverwaltung!");
 
-        Feedback invalidFeedback = new Feedback("-", "John123", "DOE!", "john.doe@com ", " ");
+        Feedback invalidFeedback = new Feedback("", "John123", "DOE!", "john.doe@com ", " ");
 
     }
+
+    // TODO loescheFeedback
+
+    // TODO findeFeedback
 }
