@@ -40,6 +40,10 @@ public class FeedbackService {
 
     public Feedback findeFeedback(String feedbackID) {
         Feedback feedback = feedbackRepository.findById(feedbackID);
+
+        System.out.println("findeFeedback wird ausgeführt");
+        System.out.println("Feedback: " + feedback); // Testen was in feedback gespeichert ist
+
         if (feedback == null) {
             throw new IllegalArgumentException("Das Feedback konnte nicht gefunden werden.");
         }
