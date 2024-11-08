@@ -12,11 +12,9 @@ public class InputValidatorTest {
         assertFalse(InputValidator.isValidFirstName("John123"));
         assertFalse(InputValidator.isValidFirstName(""));
 
-        /*
-        Testen der Randfälle:
+        //Testen der Randfälle:
         
         assertFalse(InputValidator.isValidFirstName("  "));
-        assertFalse(InputValidator.isValidFirstName(null));
         assertFalse(InputValidator.isValidFirstName("@"));
         assertFalse(InputValidator.isValidFirstName("%*#"));
         assertFalse(InputValidator.isValidFirstName("Lisa--Marie"));
@@ -24,7 +22,6 @@ public class InputValidatorTest {
         assertTrue(InputValidator.isValidFirstName("Straße"));
         assertFalse(InputValidator.isValidFirstName(" Lisa"));
         assertFalse(InputValidator.isValidFirstName("Lisa "));
-        */
         
     }
     @Test
@@ -34,11 +31,9 @@ public class InputValidatorTest {
         assertFalse(InputValidator.isValidLastName("John123"));
         assertFalse(InputValidator.isValidLastName(""));
 
-        /*
-        Testen der Randfälle:
+        //Testen der Randfälle:
         
         assertFalse(InputValidator.isValidFirstName("  "));
-        assertFalse(InputValidator.isValidFirstName(null));
         assertFalse(InputValidator.isValidFirstName("@"));
         assertFalse(InputValidator.isValidFirstName("%*#"));
         assertFalse(InputValidator.isValidFirstName("Lisa--Marie"));
@@ -46,7 +41,7 @@ public class InputValidatorTest {
         assertTrue(InputValidator.isValidFirstName("Straße"));
         assertFalse(InputValidator.isValidFirstName(" Lisa"));
         assertFalse(InputValidator.isValidFirstName("Lisa "));
-        */
+
     }
 
     @Test
@@ -56,8 +51,7 @@ public class InputValidatorTest {
         assertFalse(InputValidator.isValidEmail("john.doe@.com"));
         assertFalse(InputValidator.isValidEmail("john.doe@com."));
 
-        /*
-        Testen der Randfälle:
+        //Testen der Randfälle:
 
         assertFalse(InputValidator.isValidEmail("  "));
         assertFalse(InputValidator.isValidEmail(""));
