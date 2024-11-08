@@ -57,6 +57,6 @@ public class InputValidatorTest {
         assertFalse(InputValidator.isValidEmail(""));
         assertFalse(InputValidator.isValidEmail(" john.doe@example.com"));
         assertFalse(InputValidator.isValidEmail("john.doe@example.com "));
-        */
+
     }
 }

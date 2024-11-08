@@ -24,6 +24,17 @@ public class FeedbackServiceTest {
     }
 
     // TODO loescheFeedback
+    @Test
+    public void testLoescheFeedback() {
+        //Mock-FeedbackRepository erstellen
+        FeedbackRepository feedbackRepository = new MockFeedbackRepository();
 
+        //FeedbackService initialisieren mit FeedbackRepository
+        FeedbackService service = new FeedbackService(feedbackRepository);
+
+        //Feedback-Objekt erstellen
+        Feedback validFeedback = new Feedback("1", "Lisa-Marie", "Heufer-Umlauf", "lisa-marie.heufer-umlauf@gmail.com", "Ich liebe die Stadtverwaltung!");
+
+    }
     // TODO findeFeedback
 }
