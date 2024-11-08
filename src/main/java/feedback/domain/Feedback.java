@@ -15,7 +15,10 @@ public class Feedback {
         this.message = message;
     }
 
-
+@Override
+public String toString() {
+        return "Feedback von " + firstName + " " + lastName + " (" + email + "): " + message;
+}
 
     //Getter und Setter für ID
     public String getFeedbackID() {
