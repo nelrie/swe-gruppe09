@@ -8,8 +8,8 @@
     <version>1.0.0</version>             <!-- Versionsnummer -->
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -29,8 +29,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.9.9</version>  <!-- Stelle sicher, dass du eine unterstützte Version verwendest -->
                 <configuration>
-                    <source>17</source>  <!-- Deine Quell-Java-Version -->
-                    <target>17</target>  <!-- Deine Ziel-Java-Version -->
+                    <source>21</source>  <!-- Deine Quell-Java-Version -->
+                    <target>21</target>  <!-- Deine Ziel-Java-Version -->
                 </configuration>
             </plugin>
         </plugins>
