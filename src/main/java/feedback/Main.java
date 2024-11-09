@@ -44,7 +44,7 @@ public class Main {
 
         StatusService feedbackUser = new StatusService("Max Mustermann");
 
-        // Den Standard-Status anzeigen
+        // Standard-Status anzeigen
         System.out.println("Aktueller Status: " + feedbackUser.getStatus().getDescription());
 
         // Status auf "in Bearbeitung" ändern

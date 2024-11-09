@@ -1,5 +1,6 @@
 package feedback.domain;
 
+// Drei verschiedene Statusanzeigen
 public enum Status {
     RECEIVED("Feedback erhalten"),
     IN_PROGRESS("Feedback wird bearbeitet"),

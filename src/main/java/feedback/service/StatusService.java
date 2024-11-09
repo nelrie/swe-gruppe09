@@ -27,7 +27,7 @@ public class StatusService {
     // Methode zum "Verschicken" des Feedback-Status (simuliert)
     public void sendStatusUpdate() {
         System.out.println("Der Benutzer '" + userStatus + "' hat den Feedback-Status verschickt: " + status.getDescription());
-        // Hier könnte z. B. ein HTTP-Request oder eine E-Mail ausgelöst werden
+
     }
 }
 
