@@ -64,6 +64,7 @@ public String toString() {
 
     }
 
+    //Getter und Setter für Status
     public Status getStatus() {
     return status;
 }
