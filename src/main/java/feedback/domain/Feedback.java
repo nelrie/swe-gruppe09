@@ -1,11 +1,14 @@
 package feedback.domain;
 
+import feedback.service.StatusService;
+
 public class Feedback {
     private String feedbackID;
     private String firstName;
     private String lastName;
     private String email;
     private String message;
+    private Status status;
 
     public Feedback(String feedbackID, String firstName, String lastName, String email, String message) {
         this.feedbackID = feedbackID;
@@ -13,6 +16,7 @@ public class Feedback {
         this.lastName = lastName;
         this.email = email;
         this.message = message;
+        this.status = Status.RECEIVED;
     }
 
 @Override
@@ -60,6 +64,13 @@ public String toString() {
 
     }
 
+    public Status getStatus() {
+    return status;
+}
+
+     public void setStatus(Status status) {
+         this.status = status;
+     }
 
     //Getter und Setter für Message
     public String getMessage() {
