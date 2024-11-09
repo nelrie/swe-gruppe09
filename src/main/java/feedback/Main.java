@@ -4,6 +4,8 @@ import feedback.domain.Feedback;
 import feedback.repository.FeedbackRepository;
 import feedback.repository.MockFeedbackRepository;
 import feedback.service.FeedbackService;
+import feedback.domain.Status;
+import feedback.service.StatusService;
 
 public class Main {
     public static void main(String[] args) {
@@ -40,6 +42,18 @@ public class Main {
             System.err.println("Fehler beim Löschen des Feedbacks: " + e.getMessage());
         }
 
+        StatusService feedbackUser = new StatusService("Max Mustermann");
 
+        // Den Standard-Status anzeigen
+        System.out.println("Aktueller Status: " + feedbackUser.getStatus().getDescription());
+
+        // Status auf "in Bearbeitung" ändern
+        feedbackUser.setStatus(Status.IN_PROGRESS);
+
+        // Status auf "abgeschlossen" ändern
+        feedbackUser.setStatus(Status.COMPLETED);
+
+        // Status-Update verschicken
+        feedbackUser.sendStatusUpdate();
     }
 }
