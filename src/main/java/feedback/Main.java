@@ -34,7 +34,6 @@ public class Main {
 
         try{
             //Feedback löschen
-
             feedbackService.loescheFeedback("1");
             System.out.println("Das Feedback wurde entfernt: " + feedbackService.findeFeedback("1"));
         } catch (Exception e) {
