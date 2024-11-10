@@ -1,6 +1,7 @@
 package feedback.repository;
 
 import feedback.domain.Feedback;
+import feedback.domain.Status;
 
 import java.util.ArrayList;
 import java.util.List;

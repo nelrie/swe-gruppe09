@@ -1,5 +1,6 @@
 package feedback.service;
 
+import java.util.UUID;
 import feedback.repository.FeedbackRepository;
 import feedback.domain.Feedback;
 import feedback.validation.InputValidator;
@@ -31,7 +32,9 @@ public class FeedbackService {
             throw new IllegalArgumentException("Nachricht darf nicht leer sein");
         }
 
-        String feedbackID = String.valueOf(idCounter++);
+        //String feedbackID = String.valueOf(idCounter++);
+        String feedbackID = UUID.randomUUID().toString(); //Erzeugt eine zufällige ID -> vermeidet doppelte IDs
+
         Feedback feedback = new Feedback(feedbackID, firstName, lastName, email, message);
 
         feedbackRepository.save(feedback);
