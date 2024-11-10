@@ -18,7 +18,7 @@ jobs:
     steps:
       # 1. Checke den Code aus dem Repository aus
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # 2. Setze die Java-Umgebung auf die gewünschte Version
       - name: Set up JDK
@@ -29,7 +29,7 @@ jobs:
 
       # 3. Cache für Maven-Repository, um die Geschwindigkeit zu erhöhen
       - name: Cache Maven packages
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
