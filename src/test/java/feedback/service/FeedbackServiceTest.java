@@ -2,7 +2,6 @@ package feedback.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.AfterEach;
 import feedback.domain.Feedback;
 import feedback.repository.FeedbackRepository;
 import feedback.repository.MockFeedbackRepository;
@@ -10,47 +9,66 @@ import org.junit.jupiter.api.Test;
 
 public class FeedbackServiceTest {
 
+    private FeedbackRepository feedbackRepository;
+    private FeedbackService feedbackService;
+    private Feedback feedback;
 
+    // Hinzugefügt nach KI-Review: Initialisiert das FeedbackRepository und FeedbackService vor jedem Test
+@BeforeEach
+public void setUp(){
+    //Mock-FeedbackRepository erstellen
+    feedbackRepository  = new MockFeedbackRepository();
+
+    //FeedbackService initialisieren mit FeedbackRepository
+    feedbackService = new FeedbackService(feedbackRepository);
+
+    //Erstellt ein Feedback Objekt vor jedem Test
+    feedback = feedbackService.erstelleFeedback("Lisa-Marie", "Heufer-Umlauf", "lisa-marie.heufer-umlauf@gmail.com", "Ich liebe die Stadtverwaltung!");
+}
+
+    //Test zum Erstellen eines Feedbacks
     @Test
     public void testErstelleFeedback() {
 
-        //Mock-FeedbackRepository erstellen
-        FeedbackRepository feedbackRepository = new MockFeedbackRepository();
+        // Findet das erstellte Feedback im Repository
+        Feedback gefundenesFeedback = feedbackRepository.findById(feedback.getFeedbackID());
 
-        //FeedbackService initialisieren mit FeedbackRepository
-        FeedbackService service = new FeedbackService(feedbackRepository);
+        //Überprüft, dass Feedback nicht null ist
+        assertNotNull(gefundenesFeedback);
 
-        //Feedback-Objekt erstellen
-        Feedback validFeedback = new Feedback("1", "Lisa-Marie", "Heufer-Umlauf", "lisa-marie.heufer-umlauf@gmail.com", "Ich liebe die Stadtverwaltung!");
+        // Überprüft, ob die Eigenschaften des Feedbacks korrekt sind
+        assertEquals("Lisa-Marie", gefundenesFeedback.getFirstName());
+        assertEquals("Heufer-Umlauf", gefundenesFeedback.getLastName());
+        assertEquals("lisa-marie.heufer-umlauf@gmail.com", gefundenesFeedback.getEmail());
+        assertEquals("Ich liebe die Stadtverwaltung!", gefundenesFeedback.getMessage());
 
-        Feedback invalidFeedback = new Feedback("", "John123", "DOE!", "john.doe@com ", " ");
 
     }
 
-    // TODO loescheFeedback
+
     @Test
     public void testLoescheFeedback() {
-        //Mock-FeedbackRepository erstellen
-        FeedbackRepository feedbackRepository = new MockFeedbackRepository();
 
-        //FeedbackService initialisieren mit FeedbackRepository
-        FeedbackService service = new FeedbackService(feedbackRepository);
+       // Löscht Feedback anhand der ID
+        feedbackService.loescheFeedback(feedback.getFeedbackID());
 
-        //Feedback-Objekt erstellen
-        Feedback validFeedback = new Feedback("1", "Lisa-Marie", "Heufer-Umlauf", "lisa-marie.heufer-umlauf@gmail.com", "Ich liebe die Stadtverwaltung!");
+        // Versucht, das gelöschte Feedback in Repository zu finden
+        Feedback gefundenesFeedback = feedbackRepository.findById(feedback.getFeedbackID());
+
+        //Überprüft, ob das Feedback null ist, also gelöscht wurde
+        assertNull(gefundenesFeedback);
 
     }
-    // TODO findeFeedback
+
     @Test
     public void testFindeFeedback() {
-//Mock-FeedbackRepository erstellen
-        FeedbackRepository feedbackRepository = new MockFeedbackRepository();
+        Feedback gefundenesFeedback = feedbackService.findeFeedback(feedback.getFeedbackID());
+        assertNotNull(gefundenesFeedback);
+        assertEquals("Lisa-Marie", gefundenesFeedback.getFirstName());
+        assertEquals("Heufer-Umlauf", gefundenesFeedback.getLastName());
+        assertEquals("lisa-marie.heufer-umlauf@gmail.com", gefundenesFeedback.getEmail());
+        assertEquals("Ich liebe die Stadtverwaltung!", gefundenesFeedback.getMessage());
 
-        //FeedbackService initialisieren mit FeedbackRepository
-        FeedbackService service = new FeedbackService(feedbackRepository);
-
-        //Feedback-Objekt erstellen
-        Feedback validFeedback = new Feedback("1", "Lisa-Marie", "Heufer-Umlauf", "lisa-marie.heufer-umlauf@gmail.com", "Ich liebe die Stadtverwaltung!");
 
     }
 

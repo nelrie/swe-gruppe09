@@ -22,7 +22,7 @@ jobs:
 
       # 2. Setze die Java-Umgebung auf die gewünschte Version
       - name: Set up JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'  # Alternativen: zulu, adopt, etc.
           java-version: '23'       # Wähle die Java-Version, z.B. 17 oder 11

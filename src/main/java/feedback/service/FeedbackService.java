@@ -8,7 +8,6 @@ import feedback.validation.InputValidator;
 public class FeedbackService {
 
     private final FeedbackRepository feedbackRepository;
-    private long idCounter = 0; //zählt die ID hoch
 
     // Konstruktor
     public FeedbackService(FeedbackRepository feedbackRepository) {
