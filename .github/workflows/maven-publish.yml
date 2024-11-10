@@ -25,7 +25,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'  # Alternativen: zulu, adopt, etc.
-          java-version: '17'       # Wähle die Java-Version, z.B. 17 oder 11
+          java-version: '23'       # Wähle die Java-Version, z.B. 17 oder 11
 
       # 3. Cache für Maven-Repository, um die Geschwindigkeit zu erhöhen
       - name: Cache Maven packages
