@@ -49,4 +49,5 @@ jobs:
            name: test-results
            path: target/surefire-reports
            
-env: FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true
+env: 
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true
