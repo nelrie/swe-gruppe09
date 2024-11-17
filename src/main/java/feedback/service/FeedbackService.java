@@ -15,6 +15,8 @@ public class FeedbackService {
     }
 
     // Methode
+
+    /*
     public Feedback erstelleFeedback( String firstName, String lastName, String email, String message) {
 
         // Validierung der Eingaben
@@ -39,6 +41,37 @@ public class FeedbackService {
         feedbackRepository.save(feedback);
         return feedback;
     }
+*/
+    // Nach GitHub Copilot und Analyse der Metriken wurde die Methode wie folgt geändert:
+
+    public Feedback erstelleFeedback(String firstName, String lastName, String email, String message) {
+
+        // Validierung der Eingaben
+        validateInput(firstName, lastName, email, message);
+
+        String feedbackID = UUID.randomUUID().toString(); // Erzeugt eine zufällige ID -> vermeidet doppelte IDs
+
+        Feedback feedback = new Feedback(feedbackID, firstName, lastName, email, message);
+
+        feedbackRepository.save(feedback);
+        return feedback;
+    }
+
+    private void validateInput(String firstName, String lastName, String email, String message) {
+        if (!InputValidator.isValidFirstName(firstName)) {
+            throw new IllegalArgumentException("Ungültiger Vorname");
+        }
+        if (!InputValidator.isValidLastName(lastName)) {
+            throw new IllegalArgumentException("Ungültiger Nachname");
+        }
+        if (!InputValidator.isValidEmail(email)) {
+            throw new IllegalArgumentException("Ungültige E-Mail-Adresse");
+        }
+        if (!InputValidator.isValidMessage(message)) {
+            throw new IllegalArgumentException("Nachricht darf nicht leer sein");
+        }
+    }
+
 
     public Feedback findeFeedback(String feedbackID) {
         Feedback feedback = feedbackRepository.findById(feedbackID);

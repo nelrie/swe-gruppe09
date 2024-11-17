@@ -5,7 +5,7 @@ import feedback.domain.Status;
 public class StatusService {
 
     private Status status;
-    private String userStatus;
+    private final String userStatus;
 
     // Konstruktor
     public StatusService(String userStatus) {

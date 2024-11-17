@@ -13,13 +13,13 @@ public class StatusTest {
 
     @BeforeEach
     public void setUp() {
-        // Erstellen eines neuen FeedbackManagers für jeden Testfall
+        // Erstellen eines neuen StatusService für jeden Testfall
         statusService = new StatusService("Max Mustermann");
     }
 
     @Test
     public void testInitialStatus() {
-        // Testet, ob der initiale Status auf "RECEIVED" gesetzt ist
+        // Testet, ob der Status auf "RECEIVED" gesetzt ist
         assertEquals(Status.RECEIVED, statusService.getStatus(),
                 "Der Status sollte 'Feedback erhalten' sein.");
     }
