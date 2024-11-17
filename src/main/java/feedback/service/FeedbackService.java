@@ -1,5 +1,6 @@
 package feedback.service;
 
+import java.util.List;
 import java.util.UUID;
 import feedback.repository.FeedbackRepository;
 import feedback.domain.Feedback;
@@ -93,5 +94,9 @@ public class FeedbackService {
             throw new IllegalArgumentException("Feedback mit der ID " + feedbackID + " konnte nicht gefunden werden.");
         }
         feedbackRepository.deleteById(feedbackID);
+    }
+
+    public List<Feedback> findeAlleFeedbacks() {
+        return feedbackRepository.findAll();
     }
 }
