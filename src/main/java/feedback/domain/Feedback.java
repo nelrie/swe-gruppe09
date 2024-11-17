@@ -2,7 +2,15 @@ package feedback.domain;
 
 import feedback.service.StatusService;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 public class Feedback {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String feedbackID;
     private String firstName;
     private String lastName;

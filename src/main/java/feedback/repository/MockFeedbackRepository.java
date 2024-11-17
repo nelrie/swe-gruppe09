@@ -14,7 +14,10 @@ public class MockFeedbackRepository implements FeedbackRepository {
         feedbackList.add(feedback);
     }
 
-
+    @Override
+    public List<Feedback> findAll() {
+        return feedbackList;
+    }
 
     @Override
     public Feedback findById(String feedbackID) {
