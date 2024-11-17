@@ -1,3 +1,12 @@
+# Dokumentation der CI Pipeline
+Unsere CI-Pipeline haben wir mit Github Actions erstellt und haben dort Maven gewählt, da uns das als einfachste Lösung vorschwebte. <br>
+Für unser Projekt haben wir eine CI-Pipeline in GitHub Actions erstellt, die bei jedem Pull Request und bei jedem direkten Push in den main-Branch aktiviert wird. 
+Damit wird sichergestellt, dass nur geprüfter Code in den Haupt-Branch gelangt. <br>
+Die Pipeline lädt zunächst den aktuellen Stand des Repositories und setzt die Java-Umgebung auf Version 17, um die Kompatibilität sicherzustellen. <br>
+Anschließend wird ein Maven-Cache verwendet, um den Build zu beschleunigen, indem wiederverwendbare Abhängigkeiten gespeichert werden. 
+Dann wird der Befehl `mvn clean verify -DskipTests=false` ausgeführt, der den Code kompiliert und alle Tests durchführt. <br>
+Falls Tests fehlschlagen, werden die Testberichte als Artefakte gespeichert, sodass sie zur Analyse bereitstehen.
+
 #  Git-Handout für Anfänger
 # Was ist Git und warum sollte es verwendet werden? 
 
