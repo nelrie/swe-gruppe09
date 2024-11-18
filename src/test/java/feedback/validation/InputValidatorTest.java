@@ -59,6 +59,20 @@ public class InputValidatorTest {
         assertFalse(InputValidator.isValidEmail(""));
         assertFalse(InputValidator.isValidEmail(" john.doe@example.com"));
         assertFalse(InputValidator.isValidEmail("john.doe@example.com "));
+        assertFalse(InputValidator.isValidEmail("john.doe"));
 
+    }
+
+    @Test
+    void testIsValidMessage_ValidInputs() {
+        assertTrue(InputValidator.isValidMessage("Dies ist eine Nachricht."));
+        assertTrue(InputValidator.isValidMessage("  Nachricht mit Leerzeichen   "));
+    }
+
+    @Test
+    void testIsValidMessage_InvalidInputs() {
+        assertFalse(InputValidator.isValidMessage("")); // leerer String
+        assertFalse(InputValidator.isValidMessage("   ")); // nur Leerzeichen
+        assertFalse(InputValidator.isValidMessage(null)); // null-Wert
     }
 }

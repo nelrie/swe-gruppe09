@@ -1,8 +1,5 @@
 package feedback.domain;
 
-import feedback.service.StatusService;
-
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -77,7 +74,7 @@ public String toString() {
     return status;
 }
 
-     public void setStatus(Status status) {
+    public void setStatus(Status status) {
          this.status = status;
      }
 
@@ -89,7 +86,5 @@ public String toString() {
     public void setMessage(String message) {
         this.message = message;
     }
-
-
 
 }
