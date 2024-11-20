@@ -1,0 +1,4 @@
+status/StatusServiceTest.class
+feedback/service/FeedbackServiceTest.class
+feedback/validation/InputValidatorTest.class
+feedback/infrastructure/FeedbackControllerTest.class
