@@ -3,7 +3,6 @@
 import feedback.repository.FeedbackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import feedback.repository.FeedbackRepository;
 import feedback.repository.MockFeedbackRepository;
@@ -18,18 +17,18 @@ public class FeedbackController {
 
     // Konstruktor um den FeedbackService zu injizieren
     @Autowired
-<span class="nc" id="L21">    public FeedbackController(FeedbackService feedbackService) {</span>
-<span class="nc" id="L22">        this.feedbackService = feedbackService;</span>
-<span class="nc" id="L23">    }</span>
+<span class="fc" id="L20">    public FeedbackController(FeedbackService feedbackService) {</span>
+<span class="fc" id="L21">        this.feedbackService = feedbackService;</span>
+<span class="fc" id="L22">    }</span>
 
     // @RequestBody weist Spring Boot an, den Inhalt des HTTP-Requests in ein Feedback Objekt umwandeln soll
     @PostMapping
     public Feedback erstelleFeedback(@RequestBody Feedback feedback) {
-<span class="nc" id="L28">        return feedbackService.erstelleFeedback(</span>
-<span class="nc" id="L29">                feedback.getFirstName(),</span>
-<span class="nc" id="L30">                feedback.getLastName(),</span>
-<span class="nc" id="L31">                feedback.getEmail(),</span>
-<span class="nc" id="L32">                feedback.getMessage()</span>
+<span class="fc" id="L27">        return feedbackService.erstelleFeedback(</span>
+<span class="fc" id="L28">                feedback.getFirstName(),</span>
+<span class="fc" id="L29">                feedback.getLastName(),</span>
+<span class="fc" id="L30">                feedback.getEmail(),</span>
+<span class="fc" id="L31">                feedback.getMessage()</span>
         );
     }
 //@PathVariable String id: sagt dem Programm, dass es den Wert des Pfadparameters id in die Methode einfügen soll
@@ -37,16 +36,16 @@ public class FeedbackController {
     // die Pfadvariable id in der URL entspricht der feedbackID des Feedback-Objekts.
     @GetMapping(&quot;/{id}&quot;)
     public Feedback findeFeedback(@PathVariable String id) {
-<span class="nc" id="L40">        return feedbackService.findeFeedback(id);</span>
+<span class="fc" id="L39">        return feedbackService.findeFeedback(id);</span>
     }
 
     @DeleteMapping(&quot;/{id}&quot;)
     public void loescheFeedback(@PathVariable String id) {
-<span class="nc" id="L45">        feedbackService.loescheFeedback(id);</span>
-<span class="nc" id="L46">    }</span>
+<span class="fc" id="L44">        feedbackService.loescheFeedback(id);</span>
+<span class="fc" id="L45">    }</span>
     @GetMapping
     public List&lt;Feedback&gt; findeAlleFeedbacks() {
-<span class="nc" id="L49">        return feedbackService.findeAlleFeedbacks();</span>
+<span class="fc" id="L48">        return feedbackService.findeAlleFeedbacks();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

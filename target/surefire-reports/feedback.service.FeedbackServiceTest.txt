@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: feedback.service.FeedbackServiceTest
 -------------------------------------------------------------------------------
-Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.445 s -- in feedback.service.FeedbackServiceTest
+Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.587 s -- in feedback.service.FeedbackServiceTest

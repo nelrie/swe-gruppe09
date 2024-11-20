@@ -299,5 +299,14 @@ public void setUp(){
         assertEquals("Mustermann", result.getLastName());
     }
 
+    @Test
+    void testFindById_NotFound() {
+        MockFeedbackRepository repository = new MockFeedbackRepository();
+        Feedback feedback = new Feedback("1", "John", "Doe", "john.doe@example.com", "Great service!");
+        repository.save(feedback);
 
+        Feedback result = repository.findById("2"); // ID, die nicht existiert
+
+        assertNull(result); // Teste, dass null zurückgegeben wird
+    }
 }
