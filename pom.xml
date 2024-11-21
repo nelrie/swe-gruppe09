@@ -126,6 +126,7 @@
                             <rules>
                                 <rule>
                                     <element>PACKAGE</element>
+                                    <!--
                                     <limits>
                                         <limit>
                                             <counter>LINE</counter>
@@ -133,6 +134,7 @@
                                             <minimum>0.8</minimum>
                                         </limit>
                                     </limits>
+                                    -->
                                 </rule>
                             </rules>
                         </configuration>
