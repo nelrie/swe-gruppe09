@@ -1,0 +1,9 @@
+/Users/maylinmittmann/IdeaProjects/swe-gruppe09/src/main/java/feedback/Main.java
+/Users/maylinmittmann/IdeaProjects/swe-gruppe09/src/main/java/feedback/domain/Feedback.java
+/Users/maylinmittmann/IdeaProjects/swe-gruppe09/src/main/java/feedback/domain/Status.java
+/Users/maylinmittmann/IdeaProjects/swe-gruppe09/src/main/java/feedback/infrastructure/FeedbackController.java
+/Users/maylinmittmann/IdeaProjects/swe-gruppe09/src/main/java/feedback/repository/FeedbackRepository.java
+/Users/maylinmittmann/IdeaProjects/swe-gruppe09/src/main/java/feedback/repository/MockFeedbackRepository.java
+/Users/maylinmittmann/IdeaProjects/swe-gruppe09/src/main/java/feedback/service/FeedbackService.java
+/Users/maylinmittmann/IdeaProjects/swe-gruppe09/src/main/java/feedback/service/StatusService.java
+/Users/maylinmittmann/IdeaProjects/swe-gruppe09/src/main/java/feedback/validation/InputValidator.java

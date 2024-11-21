@@ -58,7 +58,7 @@ public class FeedbackService {
         return feedback;
     }
 
-    private void validateInput(String firstName, String lastName, String email, String message) {
+    void validateInput(String firstName, String lastName, String email, String message) {
         if (!InputValidator.isValidFirstName(firstName)) {
             throw new IllegalArgumentException("Ungültiger Vorname");
         }
