@@ -1,10 +1,10 @@
-package feedback.service;
+package feedback.application.service;
 
 import java.util.List;
 import java.util.UUID;
-import feedback.repository.FeedbackRepository;
-import feedback.domain.Feedback;
-import feedback.validation.InputValidator;
+import feedback.domain.repository.FeedbackRepository;
+import feedback.domain.model.Feedback;
+import feedback.exceptions.validation.InputValidator;
 
 public class FeedbackService {
 

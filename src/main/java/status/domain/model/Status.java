@@ -1,4 +1,4 @@
-package feedback.domain;
+package status.domain.model;
 
 // Drei verschiedene Statusanzeigen
 public enum Status {

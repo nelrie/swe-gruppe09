@@ -1,11 +1,11 @@
 package feedback;
 
-import feedback.domain.Feedback;
-import feedback.repository.FeedbackRepository;
-import feedback.repository.MockFeedbackRepository;
-import feedback.service.FeedbackService;
-import feedback.domain.Status;
-import feedback.service.StatusService;
+import feedback.domain.model.Feedback;
+import feedback.domain.repository.FeedbackRepository;
+import feedback.domain.repository.MockFeedbackRepository;
+import feedback.application.service.FeedbackService;
+import status.domain.model.Status;
+import feedback.application.service.StatusService;
 
 public class Main {
     public static void main(String[] args) {

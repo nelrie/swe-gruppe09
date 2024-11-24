@@ -1,5 +1,6 @@
-package feedback.validation;
+package feedback.exceptions.validation;
 
+import feedback.exceptions.validation.InputValidator;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

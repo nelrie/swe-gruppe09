@@ -1,14 +1,12 @@
 package feedback.infrastructure;
 
-import feedback.repository.FeedbackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import feedback.repository.FeedbackRepository;
-import feedback.repository.MockFeedbackRepository;
-import feedback.service.FeedbackService;
-import feedback.domain.Feedback;
+
+import feedback.application.service.FeedbackService;
+import feedback.domain.model.Feedback;
 
 @RestController
 @RequestMapping("/feedbacks")

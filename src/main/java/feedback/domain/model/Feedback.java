@@ -1,8 +1,6 @@
-package feedback.domain;
+package feedback.domain.model;
 
-import feedback.service.StatusService;
-
-import jakarta.persistence.Entity;
+import status.domain.model.Status;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;

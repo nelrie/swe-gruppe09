@@ -1,10 +1,12 @@
-package feedback.service;
+package feedback.application.service;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import feedback.application.service.FeedbackService;
 import org.junit.jupiter.api.BeforeEach;
-import feedback.domain.Feedback;
-import feedback.repository.FeedbackRepository;
-import feedback.repository.MockFeedbackRepository;
+import feedback.domain.model.Feedback;
+import feedback.domain.repository.FeedbackRepository;
+import feedback.domain.repository.MockFeedbackRepository;
 import org.junit.jupiter.api.Test;
 
 public class FeedbackServiceTest {

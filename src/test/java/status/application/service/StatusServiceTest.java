@@ -1,7 +1,7 @@
-package status;
+package status.application.service;
 
-import feedback.domain.Status;
-import feedback.service.StatusService;
+import status.domain.model.Status;
+import feedback.application.service.StatusService;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,6 @@
-package feedback.service;
+package feedback.application.service;
 
-import feedback.domain.Status;
+import status.domain.model.Status;
 
 public class StatusService {
 
