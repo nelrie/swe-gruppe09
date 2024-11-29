@@ -2,15 +2,19 @@ function submitFeedback() {
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const email = document.getElementById('email').value;
-    const feedback = document.getElementById('feedback').value;
-    const status = document.getElementById('status').value;
+    //const feedback = document.getElementById('feedback').value;
+    // in der Index.html Datei wurde das Textfeld mit der ID 'message' benannt und nicht 'feedback'
+    const message = document.getElementById('message').value;
+    //const status = document.getElementById('status').value;
+    // Status ist in der Index.html noch nicht definiert
 
     const feedbackData = {
         firstName: firstName,
         lastName: lastName,
         email: email,
-        message: feedback,
-        status: status
+        //message: feedback,
+        message: message
+        //status: status
     };
 
     // ein neues XMLHTTPRequest-Objekt wird erstellt um eine HHTP Anfrage zu senden
