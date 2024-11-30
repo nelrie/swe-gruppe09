@@ -1,4 +1,4 @@
-package feedback.domain.repository;
+package feedback.infrastructure.repository;
 
 import feedback.domain.model.Feedback;
 
