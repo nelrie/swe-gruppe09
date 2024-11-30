@@ -1,10 +1,13 @@
-package feedback.domain.repository;
+package feedback.infrastructure.repository;
 
 import feedback.domain.model.Feedback;
+import org.springframework.stereotype.Repository;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class MockFeedbackRepository implements FeedbackRepository {
     private final List<Feedback> feedbackList = new ArrayList<>();
 

@@ -2,9 +2,11 @@ package feedback.domain.model;
 
 import status.domain.model.Status;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+@Entity
 public class Feedback {
 
     @Id
@@ -16,6 +18,9 @@ public class Feedback {
     private String message;
     private Status status;
 
+    public Feedback() {
+        //No-Args-Konstruktor für JPA
+    }
     public Feedback(String feedbackID, String firstName, String lastName, String email, String message) {
         this.feedbackID = feedbackID;
         this.firstName = firstName;
@@ -24,6 +29,7 @@ public class Feedback {
         this.message = message;
         this.status = Status.RECEIVED;
     }
+
 
 @Override
 public String toString() {
