@@ -7,10 +7,15 @@ import feedback.domain.model.Feedback;
 import feedback.infrastructure.repository.FeedbackRepository;
 import feedback.infrastructure.repository.MockFeedbackRepository;
 import org.junit.jupiter.api.Test;
+import status.application.service.StatusService;
+import status.infrastructure.repository.MockStatusRepository;
+import status.infrastructure.repository.StatusRepository;
 
 public class FeedbackServiceTest {
 
     private FeedbackRepository feedbackRepository;
+    private StatusRepository statusRepository;
+    private StatusService statusService;
     private FeedbackService feedbackService;
     private Feedback feedback;
 
@@ -20,8 +25,15 @@ public void setUp(){
     //Mock-FeedbackRepository erstellen
     feedbackRepository  = new MockFeedbackRepository();
 
+
+    // Mock-StatusRepository erstellen
+    statusRepository = new MockStatusRepository();
+
+    // StatusService initialisieren mit StatusRepository
+    statusService = new StatusService(statusRepository);
+
     //FeedbackService initialisieren mit FeedbackRepository
-    feedbackService = new FeedbackService(feedbackRepository);
+    feedbackService = new FeedbackService(feedbackRepository, statusService);
 
     //Erstellt ein Feedback Objekt vor jedem Test
     feedback = feedbackService.erstelleFeedback("Lisa-Marie", "Heufer-Umlauf", "lisa-marie.heufer-umlauf@gmail.com", "Ich liebe die Stadtverwaltung!");
