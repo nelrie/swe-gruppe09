@@ -2,10 +2,12 @@ package feedback.application.service;
 
 import java.util.List;
 import java.util.UUID;
-import feedback.domain.repository.FeedbackRepository;
+import feedback.infrastructure.repository.FeedbackRepository;
 import feedback.domain.model.Feedback;
 import feedback.exceptions.validation.InputValidator;
+import org.springframework.stereotype.Service;
 
+@Service
 public class FeedbackService {
 
     private final FeedbackRepository feedbackRepository;
@@ -15,34 +17,7 @@ public class FeedbackService {
         this.feedbackRepository = feedbackRepository;
     }
 
-    // Methode
 
-    /*
-    public Feedback erstelleFeedback( String firstName, String lastName, String email, String message) {
-
-        // Validierung der Eingaben
-        if (!InputValidator.isValidFirstName(firstName)){
-            throw new IllegalArgumentException("Ungültiger Vorname");
-        }
-        if (!InputValidator.isValidLastName(lastName)) {
-            throw new IllegalArgumentException("Ungültiger Nachname");
-        }
-        if (!InputValidator.isValidEmail(email)) {
-            throw new IllegalArgumentException("Ungültige E-Mail-Adresse");
-        }
-        if (!InputValidator.isValidMessage(message)) {
-            throw new IllegalArgumentException("Nachricht darf nicht leer sein");
-        }
-
-        //String feedbackID = String.valueOf(idCounter++);
-        String feedbackID = UUID.randomUUID().toString(); //Erzeugt eine zufällige ID -> vermeidet doppelte IDs
-
-        Feedback feedback = new Feedback(feedbackID, firstName, lastName, email, message);
-
-        feedbackRepository.save(feedback);
-        return feedback;
-    }
-*/
     // Nach GitHub Copilot und Analyse der Metriken wurde die Methode wie folgt geändert:
 
     public Feedback erstelleFeedback(String firstName, String lastName, String email, String message) {
@@ -50,10 +25,14 @@ public class FeedbackService {
         // Validierung der Eingaben
         validateInput(firstName, lastName, email, message);
 
-        String feedbackID = UUID.randomUUID().toString(); // Erzeugt eine zufällige ID -> vermeidet doppelte IDs
+        // Erzeugt eine zufällige ID -> vermeidet doppelte IDs
+        String feedbackID = UUID.randomUUID().toString();
 
+        //Erstellt ein neues Feedback Objekt mit der generierten ID
         Feedback feedback = new Feedback(feedbackID, firstName, lastName, email, message);
 
+
+        //Speicher das Feedback im Repository
         feedbackRepository.save(feedback);
         return feedback;
     }

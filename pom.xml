@@ -71,6 +71,18 @@
         <artifactId>xmlunit-core</artifactId>
         <version>2.10.0</version>
         </dependency>
+        <!-- JavaFX Controls -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>23.0.1</version>
+        </dependency>
+        <!-- JavaFX FXML -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>23.0.1</version>
+        </dependency>
     </dependencies>
 
 
@@ -140,6 +152,21 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <!-- JavaFX Maven Plugin -->
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <mainClass>feedback.JavaFxApplication</mainClass>
+                    <options>
+                        <option>--module-path</option>
+                        <option>${java.home}/lib</option>
+                        <option>--add-modules</option>
+                        <option>javafx.controls,javafx.fxml</option>
+                    </options>
+                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -9,5 +9,9 @@
         <module name="swe-gruppe09" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="easyfeedback" target="23" />
+      <module name="feedback" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
