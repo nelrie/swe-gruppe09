@@ -19,9 +19,11 @@ public class FeedbackService {
     private final StatusService statusService;
 
     // Konstruktor
+   // @Service
     public FeedbackService(FeedbackRepository feedbackRepository, StatusService statusService) {
         this.feedbackRepository = feedbackRepository;
         this.statusService = statusService;
+
     }
 
 
@@ -97,4 +99,7 @@ public class FeedbackService {
         }
         return feedback.getStatus().name();
     }
+
+
+
 }

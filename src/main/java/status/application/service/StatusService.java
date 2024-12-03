@@ -1,5 +1,6 @@
 package status.application.service;
 
+import feedback.application.service.FeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import status.domain.model.Status;
@@ -13,6 +14,7 @@ public class StatusService {
 
 
     private final StatusRepository statusRepository;
+
 
     // Konstruktor
     public StatusService(StatusRepository statusRepository) {
@@ -45,5 +47,6 @@ public class StatusService {
         System.out.println("Der Feedback-Status für ID '" + feedbackID + "' wurde verschickt: " + status.getDescription());
 
     }
+
 }
 

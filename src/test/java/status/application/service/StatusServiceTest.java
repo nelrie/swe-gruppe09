@@ -70,4 +70,31 @@ public class StatusServiceTest {
         // Setze System.out zurück
         System.setOut(System.out);
     }
+
+    // Auslösen einer IllegalArgumentException, wenn der Status null ist
+    @Test
+    public void testInvalidStatusChange() {
+        String feedbackID = "test-feedback-id";
+        assertThrows(IllegalArgumentException.class, () -> {
+            statusService.setStatus(feedbackID, null);
+            }, "Es sollte eine IllegalArgumentException ausgelöst werden, wenn der Status null ist.");
+    }
+
+    // Überprüfen, ob der Status null ist, wenn die Feedback-ID nicht existiert
+    @Test
+    public void testGetNonExistentStatus() {
+        String feedbackID = "non-existent-feedback-id";
+        assertNull(statusService.getStatus(feedbackID), "Der Status sollte null sein, wenn die Feedback-ID nicht existiert.");
+    }
+
+    // Überprüfen, ob eine IllegalArgumentException ausgelöst wird, wenn die Feedback-ID ungültig ist
+    @Test
+    public void testSetStatusWithInvalidFeedbackID() {
+        String invalidFeedbackID = "invalid-feedback-id";
+        assertThrows(IllegalArgumentException.class, () -> {
+            statusService.setStatus(invalidFeedbackID, Status.IN_PROGRESS);
+            }, "Es sollte eine IllegalArgumentException ausgelöst werden, wenn die Feedback-ID ungültig ist.");
+    }
+
+
 }
