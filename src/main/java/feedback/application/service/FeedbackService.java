@@ -7,6 +7,7 @@ import feedback.exceptions.validation.IdGenerator;
 import feedback.infrastructure.repository.FeedbackRepository;
 import feedback.domain.model.Feedback;
 import feedback.exceptions.validation.InputValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import status.application.service.StatusService;
 import status.domain.model.Status;
@@ -19,7 +20,7 @@ public class FeedbackService {
     private final StatusService statusService;
 
     // Konstruktor
-   // @Service
+    @Autowired //Vorschlag ChatGPT
     public FeedbackService(FeedbackRepository feedbackRepository, StatusService statusService) {
         this.feedbackRepository = feedbackRepository;
         this.statusService = statusService;
