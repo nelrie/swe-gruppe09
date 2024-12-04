@@ -12,7 +12,7 @@ public class MockStatusRepository implements StatusRepository {
 
     @Override
     public Status findByFeedbackID(String feedbackID) {
-        return statusMap.getOrDefault(feedbackID, Status.RECEIVED);
+        return statusMap.get(feedbackID);
     }
 
     @Override

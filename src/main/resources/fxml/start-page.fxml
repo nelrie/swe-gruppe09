@@ -8,7 +8,7 @@
 
 <VBox xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="feedback.infrastructure.StartPageController">
+            fx:controller="feedback.ui.controller.StartPageController">
             <Label text="Willkommen zum Feedback System. Sie können entweder ein Feedback über das Feedback-Formular einreichen oder den Status eines bereits getätigten Feedbacks einsehen."/>
             <Button text="Feedback-Formular öffnen" onAction="#openFeedbackForm"/>
             <Button text="Statusseite öffnen" onAction="#openStatusPage"/>

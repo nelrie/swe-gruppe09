@@ -1,6 +1,5 @@
-package feedback.infrastructure;
+package feedback.ui.controller;
 
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,15 +8,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
-import status.ui.controller.StatusPageController;
 
 @Controller
 public class StartPageController {
 
     @Autowired
     private ApplicationContext context;
+
 
     @FXML
     private void openFeedbackForm(ActionEvent event) {

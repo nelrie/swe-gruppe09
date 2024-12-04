@@ -24,7 +24,10 @@ public class FeedbackService {
     private static final Logger logger = LoggerFactory.getLogger(FeedbackService.class);
 
 
+    @Autowired
     private final FeedbackRepository feedbackRepository;
+
+    @Autowired
     private final StatusService statusService;
 
     // Konstruktor
@@ -99,14 +102,6 @@ public class FeedbackService {
 
     public List<Feedback> findeAlleFeedbacks() {
         return feedbackRepository.findAll();
-    }
-
-    public String getFeedbackStatus(String feedbackID) {
-        Feedback feedback = feedbackRepository.findById(feedbackID);
-        if (feedback == null) {
-            throw new IllegalArgumentException("Feedback nicht gefunden");
-        }
-        return feedback.getStatus().name();
     }
 
 
