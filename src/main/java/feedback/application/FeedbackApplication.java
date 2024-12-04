@@ -8,19 +8,25 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.util.Objects;
 
 // startet Spring Boot Kontext und initialisiert alle Spring Beans
 // erbt gleichzeitig von javafx und startet dadurch den JavaFX Kontext und lädt die Benutzeroberfläche
-@SpringBootApplication(scanBasePackages = {"feedback"})
+@SpringBootApplication
+@ComponentScan(basePackages = {"feedback","status"})
 public class FeedbackApplication extends Application {
 
     private ConfigurableApplicationContext context;
 
+    public static void main(String[] args) {
+        launch(args);
+    }
     //Spring Boot Kontext starten mit SpringApplicationBuilder
     @Override
     public void init() {
@@ -31,13 +37,16 @@ public class FeedbackApplication extends Application {
     // start lädt die fxml Datei und zeigt die JavaFX Benutzeroberfläche
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/feedback-form.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/start-page.fxml"));
         fxmlLoader.setControllerFactory(context::getBean);
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         primaryStage.setTitle("Feedback System");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        //Spring Kontext prüfen
+        System.out.println("Beans im Kontext: " + context.getBeanDefinitionNames());
     }
 
     // Stop schließt den Spring Boot Kontext und beendet die JavaFX Anwendung
@@ -47,7 +56,5 @@ public class FeedbackApplication extends Application {
         Platform.exit();
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+
 }

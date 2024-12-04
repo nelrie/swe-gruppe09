@@ -1,14 +1,21 @@
 package feedback.ui.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 import feedback.application.service.FeedbackService;
 import feedback.domain.model.Feedback;
 import org.springframework.stereotype.Controller;
+import feedback.application.service.FeedbackService;
+
 
 //enthält die Logik für das JavaFX-Feedback-Formular
 @Controller
@@ -27,7 +34,11 @@ public class FeedbackFormController {
     @FXML
     private TextArea messageArea;
 
+    @Autowired
     private FeedbackService feedbackService;
+
+   @Autowired
+   private ApplicationContext context;
 
     // No-args-controller
     public FeedbackFormController() {
@@ -49,7 +60,8 @@ public class FeedbackFormController {
 
         try {
             Feedback feedback = feedbackService.erstelleFeedback(firstName, lastName, email, message);
-            showAlert("Feedback erfolgreich gesendet!",
+            String feedbackID = feedback.getFeedbackID();
+            showAlert("Feedback erfolgreich gesendet! Ihre Feedback-ID ist " + feedbackID + ". Bitte notieren Sie diese, um bei Bedarf den Status Ihred Feedbacks abzurufen.",
                     Alert.AlertType.INFORMATION);
         } catch (IllegalArgumentException e) {
             showAlert(e.getMessage(), Alert.AlertType.ERROR);
@@ -61,6 +73,20 @@ public class FeedbackFormController {
         Alert alert = new Alert(type);
         alert.setTitle("Feedback");
         alert.setContentText(message);
-        alert.showAndWait();
+        alert.showAndWait().ifPresent(response -> goToStart());
+    }
+    @FXML
+    private void goToStart() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/start-page.fxml"));
+            loader.setControllerFactory(context::getBean);
+            Parent root = loader.load();
+            Stage stage = (Stage) firstNameField.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Startseite");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -2,23 +2,37 @@ package feedback.application.service;
 
 import java.util.List;
 import java.util.UUID;
+
+import feedback.exceptions.validation.IdGenerator;
 import feedback.infrastructure.repository.FeedbackRepository;
 import feedback.domain.model.Feedback;
 import feedback.exceptions.validation.InputValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import status.application.service.StatusService;
+import status.domain.model.Status;
+
 
 @Service
 public class FeedbackService {
 
+
     private static final Logger logger = LoggerFactory.getLogger(FeedbackService.class);
 
+
     private final FeedbackRepository feedbackRepository;
+    private final StatusService statusService;
 
     // Konstruktor
-    public FeedbackService(FeedbackRepository feedbackRepository) {
+    @Autowired //Vorschlag LLM
+    public FeedbackService(FeedbackRepository feedbackRepository, StatusService statusService) {
         this.feedbackRepository = feedbackRepository;
+        this.statusService = statusService;
+
     }
 
 
@@ -30,7 +44,7 @@ public class FeedbackService {
         validateInput(firstName, lastName, email, message);
 
         // Erzeugt eine zufällige ID -> vermeidet doppelte IDs
-        String feedbackID = UUID.randomUUID().toString();
+        String feedbackID = IdGenerator.generateShortUuid();
 
         //Erstellt ein neues Feedback Objekt mit der generierten ID
         Feedback feedback = new Feedback(feedbackID, firstName, lastName, email, message);
@@ -38,6 +52,9 @@ public class FeedbackService {
 
         //Speicher das Feedback im Repository
         feedbackRepository.save(feedback);
+
+        // Setzt und speichert den initialen Status
+        statusService.setInitialStatus(feedbackID);
         return feedback;
     }
 
@@ -54,6 +71,7 @@ public class FeedbackService {
         if (!InputValidator.isValidMessage(message)) {
             throw new IllegalArgumentException("Nachricht darf nicht leer sein");
         }
+
     }
 
 
@@ -82,4 +100,15 @@ public class FeedbackService {
     public List<Feedback> findeAlleFeedbacks() {
         return feedbackRepository.findAll();
     }
+
+    public String getFeedbackStatus(String feedbackID) {
+        Feedback feedback = feedbackRepository.findById(feedbackID);
+        if (feedback == null) {
+            throw new IllegalArgumentException("Feedback nicht gefunden");
+        }
+        return feedback.getStatus().name();
+    }
+
+
+
 }
