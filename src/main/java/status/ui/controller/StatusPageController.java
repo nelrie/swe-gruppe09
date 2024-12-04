@@ -20,6 +20,10 @@ import status.domain.model.Status;
 @Controller
 public class StatusPageController {
 
+    // Prüfen ob der Controller korrekt instanziiert wird
+    public StatusPageController() {
+        System.out.println("StatusPageController wird von Spring erstellt.");
+    }
 
 
     @FXML
@@ -38,11 +42,15 @@ public class StatusPageController {
 
    @FXML
     public void checkFeedbackStatus() {
-        String feedbackID = feedbackIDField.getText();
+        //Testen ob Methode funktioniert
+       if (feedbackService == null) {
+           System.out.println("feedbackService ist null!");
+           return;
+       }
+       String feedbackID = feedbackIDField.getText();
         try {
             String status = feedbackService.getFeedbackStatus(feedbackID);
             statusLabel.setText("Der aktuelle Status Ihres Feedbacks ist: " + status);
-            System.out.println("Der aktuelle Status Ihres Feedbacks ist: " + status);
         } catch (IllegalArgumentException e) {
             showAlert(e.getMessage(), Alert.AlertType.ERROR);
         }

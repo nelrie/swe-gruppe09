@@ -44,6 +44,9 @@ public class FeedbackApplication extends Application {
         primaryStage.setTitle("Feedback System");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        //Spring Kontext prüfen
+        System.out.println("Beans im Kontext: " + context.getBeanDefinitionNames());
     }
 
     // Stop schließt den Spring Boot Kontext und beendet die JavaFX Anwendung
