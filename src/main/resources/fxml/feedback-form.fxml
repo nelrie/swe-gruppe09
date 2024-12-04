@@ -29,6 +29,5 @@
         <TextArea fx:id="messageArea" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
 
         <Button text="Abschicken" onAction="#handleSubmitFeedback" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-        
     </GridPane>
 </VBox>
