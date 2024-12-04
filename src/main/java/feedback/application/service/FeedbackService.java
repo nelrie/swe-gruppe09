@@ -9,11 +9,19 @@ import feedback.domain.model.Feedback;
 import feedback.exceptions.validation.InputValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import status.application.service.StatusService;
 import status.domain.model.Status;
 
+
 @Service
 public class FeedbackService {
+
+
+    private static final Logger logger = LoggerFactory.getLogger(FeedbackService.class);
 
 
     private final FeedbackRepository feedbackRepository;
@@ -70,14 +78,14 @@ public class FeedbackService {
     public Feedback findeFeedback(String feedbackID) {
         Feedback feedback = feedbackRepository.findById(feedbackID);
 
-        System.out.println("findeFeedback wird ausgeführt");
-        System.out.println("Feedback: " + feedback); // Testen was in feedback gespeichert ist
+        logger.info("findeFeedback wird ausgeführt");
+        logger.info("Feedback: {}", feedback); // Testen was in feedback gespeichert ist
 
         if (feedback == null) {
             throw new IllegalArgumentException("Das Feedback konnte nicht gefunden werden.");
         }
         else
-            System.out.println(("Feedback von: " + feedback.getFirstName() + " " + feedback.getLastName() + " " + feedback.getEmail() + " " +feedback.getMessage()));
+            logger.info("Feedback von: {} {} {} {}", feedback.getFirstName(), feedback.getLastName(), feedback.getEmail(), feedback.getMessage());
         return feedback;
     }
 
