@@ -1,6 +1,5 @@
 package status.application.service;
 
-import feedback.application.service.FeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import status.domain.model.Status;
@@ -8,9 +7,6 @@ import status.infrastructure.repository.StatusRepository;
 
 @Service
 public class StatusService {
-
-//    private Status status;
-//    private final String userStatus;
 
 
     @Autowired
