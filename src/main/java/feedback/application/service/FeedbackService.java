@@ -10,6 +10,9 @@ import feedback.exceptions.validation.InputValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +27,10 @@ public class FeedbackService {
     private static final Logger logger = LoggerFactory.getLogger(FeedbackService.class);
 
 
+    @Autowired
     private final FeedbackRepository feedbackRepository;
+
+    @Autowired
     private final StatusService statusService;
 
     // Konstruktor
@@ -74,7 +80,7 @@ public class FeedbackService {
 
     }
 
-
+// Übung 7: Vorher
     public Feedback findeFeedback(String feedbackID) {
         Feedback feedback = feedbackRepository.findById(feedbackID);
 
@@ -89,6 +95,16 @@ public class FeedbackService {
         return feedback;
     }
 
+     /* Übung 7: Nachher funktionalem Stil mit funktionalen Interfaces
+    public Feedback findeFeedback(String feedbackID) {
+        Feedback feedback = feedbackRepository.findAll().stream()
+            .filter(f -> f.getFeedbackID().equals(feedbackID))
+            .findFirst()
+            .orElse(null);
+     }
+     */
+
+    //Übung 7: Vorher
     public void loescheFeedback(String feedbackID) {
         Feedback feedback = feedbackRepository.findById(feedbackID);
         if (feedback == null) {
@@ -96,19 +112,30 @@ public class FeedbackService {
         }
         feedbackRepository.deleteById(feedbackID);
     }
+    
+ /* Übung 7: Nachher funktionaler Stil mit Verwendung von Optional<T>
 
+    public Optional<Feedback> loescheFeedback(String feedbackID) {
+        Feedback feedback = feedbackRepository.findById(feedbackID);
+        if (feedback == null) {
+            return Optional.empty();
+        }
+        feedbackRepository.deleteById(feedbackID);
+        return Optional.of(feedback);
+    }
+     */
+
+    // Übung 7: Vorher
     public List<Feedback> findeAlleFeedbacks() {
         return feedbackRepository.findAll();
     }
+/* Übung 7: Nachher funktionaler Stil mit StreamAPI
 
-    public String getFeedbackStatus(String feedbackID) {
-        Feedback feedback = feedbackRepository.findById(feedbackID);
-        if (feedback == null) {
-            throw new IllegalArgumentException("Feedback nicht gefunden");
-        }
-        return feedback.getStatus().name();
-    }
-
+  public List<Feedback> findeAlleFeedbacks() {
+        return feedbackRepository.findAll().stream()
+             .filter(feedback -> feedback.getStatus() == Status.RECEIVED)
+             .collect(Collectors.toList());
+ */
 
 
 }

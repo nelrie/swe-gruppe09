@@ -63,7 +63,7 @@ public class StatusServiceTest {
         statusService.sendStatusUpdate(feedbackID);
 
         // Überprüfe die Ausgabe
-        String expectedOutput = "Der Benutzer 'Max Mustermann' hat den Feedback-Status verschickt: Feedback abgeschlossen";
+        String expectedOutput = "Der Feedback-Status für ID 'test-feedback-id' wurde verschickt: Feedback abgeschlossen";
         assertTrue(outContent.toString().trim().contains(expectedOutput),
                 "Die sendStatusUpdate-Methode sollte die richtige Statusnachricht ausgeben.");
 

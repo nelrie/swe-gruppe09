@@ -6,6 +6,7 @@ public enum Status {
     IN_PROGRESS("Feedback wird bearbeitet"),
     COMPLETED("Feedback abgeschlossen");
 
+
     private final String description;
 
     Status(String description) {

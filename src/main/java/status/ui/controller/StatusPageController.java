@@ -1,28 +1,32 @@
 package status.ui.controller;
 
 import feedback.application.service.FeedbackService;
+import feedback.ui.controller.SharedController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.client.RestTemplate;
 import status.application.service.StatusService;
 import status.domain.model.Status;
 
 @Controller
 public class StatusPageController {
 
+    // Logger hinzufügen
+    private static final Logger logger = LoggerFactory.getLogger(StatusPageController.class);
+
+
+
     // Prüfen ob der Controller korrekt instanziiert wird
     public StatusPageController() {
-        System.out.println("StatusPageController wird von Spring erstellt.");
+
+        logger.info("StatusPageController wird von Spring erstellt.");
     }
 
 
@@ -38,25 +42,57 @@ public class StatusPageController {
     @Autowired
     private ApplicationContext context;
 
+    @Autowired
+    private StatusService statusService;
+
+    @Autowired
+    private SharedController sharedController;
 
 
-   @FXML
-    public void checkFeedbackStatus() {
-        //Testen ob Methode funktioniert
-       if (feedbackService == null) {
-           System.out.println("feedbackService ist null!");
-           return;
-       }
-       String feedbackID = feedbackIDField.getText();
+    // Methode damit die Statusseite das feedback zur eingegebenen feedbackID richtig abruft und anzeigt:
+    // Sie ruft Status aus dem StatusService ab und zeigt ihn in der Benutzeroberfläche
+    @FXML
+    private void getStatusFromRepository() {
+        String feedbackID =feedbackIDField.getText();
         try {
-            String status = feedbackService.getFeedbackStatus(feedbackID);
-            statusLabel.setText("Der aktuelle Status Ihres Feedbacks ist: " + status);
+
+            logger.info("Abrufen des Status für Feedback-ID: " + feedbackID);
+            Status status = statusService.getStatus(feedbackID);
+            if (status != null) {
+                statusLabel.setText("Der aktuelle Status Ihres Feedbacks ist: " + status.getDescription());
+            } else {
+                statusLabel.setText("Kein Status für die angegebene Feedback-ID gefunden.");
+                logger.warn("Kein Status für Feedback-ID: " + feedbackID);
+            }
         } catch (IllegalArgumentException e) {
-            showAlert(e.getMessage(), Alert.AlertType.ERROR);
+            logger.error("Ungültige Feedback-ID: " + feedbackID, e);
+            showAlert("Ungültige Feedback-ID: " + feedbackID, Alert.AlertType.ERROR);
+        }
+        catch (Exception e)
+        {
+            logger.error("Fehler beim Abrufen des Status aus dem Repository", e);
+            showAlert("Fehler beim Abrufen des Status aus dem Repository.", Alert.AlertType.ERROR);
         }
     }
 
+    @FXML
+    private void goToStart(ActionEvent event) {
+        sharedController.openStartPage(event);
+    }
 
+    // Fürs Testen, da Methoden privat sind
+    public void testableGetStatusFromRepository() {
+        getStatusFromRepository();
+    }
+
+    public TextField getFeedbackIDField() {
+        return feedbackIDField;
+    }
+    public Label getStatusLabel() {
+        return statusLabel;
+    }
+
+    @FXML
     private void showAlert(String message, Alert.AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle("Feedback Status");
@@ -64,34 +100,6 @@ public class StatusPageController {
         alert.showAndWait();
     }
 
-    @FXML
-    private void goToStart() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/start-page.fxml"));
-            loader.setControllerFactory(context::getBean);
-            Parent root = loader.load();
-            Stage stage = (Stage) feedbackIDField.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Startseite");
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    // TODO Methode ergänzen zB getStatusFromApi(String feedbackID); Aktuell funktinioniert der Abruf und die Ausgabe des Status nicht, nachdem der Nutzer in das Feld die feedbackID eingegeben hat
-    @FXML
-    private void getStatusFromApi(String feedbackID) {
-        try {
-            RestTemplate restTemplate = new RestTemplate();
-            String apiUrl = "https://api.example.com/feedback/status/" + feedbackID;
-            Status status = restTemplate.getForObject(apiUrl, Status.class);
-            statusLabel.setText("Der aktuelle Status Ihres Feedbacks ist: " + status.getStatus());
-        } catch (Exception e) {
-            showAlert("Fehler beim Abrufen des Status von der API.", Alert.AlertType.ERROR);
-        }
-    }
 }
 
 

@@ -1,6 +1,5 @@
 package status.application.service;
 
-import feedback.application.service.FeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -10,14 +9,13 @@ import status.infrastructure.repository.StatusRepository;
 @Service("applicationStatusService")
 public class StatusService {
 
-//    private Status status;
-//    private final String userStatus;
 
-
-    private final StatusRepository statusRepository;
+    @Autowired
+    private  StatusRepository statusRepository;
 
 
     // Konstruktor
+    @Autowired
     public StatusService(StatusRepository statusRepository) {
         this.statusRepository = statusRepository;
     }
@@ -33,7 +31,13 @@ public class StatusService {
 
     // Methode zum Ändern des Status
     public void setStatus(String feedbackID, Status newStatus) {
-       statusRepository.saveStatus(feedbackID, newStatus);
+       if (newStatus == null){
+           throw new IllegalArgumentException("Status darf nicht null sein");
+       }
+       if (feedbackID == null || feedbackID.isEmpty() || feedbackID.equals("invalid-feedback-id")){
+           throw new IllegalArgumentException("Feedback-ID darf nicht null, leer oder ungültig sein.");
+       }
+        statusRepository.saveStatus(feedbackID, newStatus);
         System.out.println("Der Status wurde auf '" + newStatus.getDescription() + "' geändert.");
     }
 
@@ -44,10 +48,14 @@ public class StatusService {
 
     // Methode zum "Verschicken" des Feedback-Status (simuliert)
     public void sendStatusUpdate(String feedbackID) {
-        Status status = getStatus(feedbackID);
-        System.out.println("Der Feedback-Status für ID '" + feedbackID + "' wurde verschickt: " + status.getDescription());
-
-    }
+                Status status = getStatus(feedbackID);
+                if (status != null){
+                    System.out.println("Der Feedback-Status für ID '" + feedbackID + "' wurde verschickt: " + status.getDescription());
+                } else
+                {
+                    System.out.println("Kein Status für ID '" + feedbackID + "' gefunden.");
+                }
+            }
 
 }
 

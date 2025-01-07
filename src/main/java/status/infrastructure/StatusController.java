@@ -15,10 +15,15 @@ public class StatusController {
     @Autowired
     private StatusService statusService;
 
+
+
     @GetMapping("/{feedbackID}")
     public ResponseEntity<Status> getStatus(@PathVariable String feedbackID) {
         Status status = statusService.getStatus(feedbackID);
-        return ResponseEntity.ok(status);
+        if (status != null) { return ResponseEntity.ok(status);
+        }
+        else {
+            return ResponseEntity.notFound().build(); }
     }
     @PutMapping("/{feedbackID}")
     public ResponseEntity<Void> updateStatus(@PathVariable String feedbackID, @RequestBody Status newStatus) {
