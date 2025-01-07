@@ -1,11 +1,12 @@
 package status.application.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import status.domain.model.Status;
 import status.infrastructure.repository.StatusRepository;
 
-@Service
+@Service("applicationStatusService")
 public class StatusService {
 
 

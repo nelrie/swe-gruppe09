@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 
 
@@ -19,6 +20,7 @@ import org.springframework.context.annotation.ComponentScan;
 // erbt gleichzeitig von javafx und startet dadurch den JavaFX Kontext und lädt die Benutzeroberfläche
 @SpringBootApplication
 @ComponentScan(basePackages = {"feedback","status"})
+@EnableAspectJAutoProxy
 public class FeedbackApplication extends Application {
 
     private ConfigurableApplicationContext context;
