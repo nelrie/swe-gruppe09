@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="feedback.ui.controller.SharedController"
+      fx:id="root">
+
+    <stylesheets>
+        <URL value="@/css/styles.css" />
+    </stylesheets>
+
+    <VBox alignment="CENTER">
+        <Label text="CityFeedback" styleClass="title" />
+        <Label text="das Bürgerbeteiligungssystem" styleClass="subtitle" />
+        <HBox fx:id="navbar" styleClass="navbar" alignment="CENTER">
+            <Button fx:id="startButton" text="Startseite" onAction="#openStartPage" styleClass="nav-button"/>
+            <Button fx:id="feedbackButton" text="Feedback einreichen" onAction="#openFeedbackForm" styleClass="nav-button"/>
+            <Button fx:id="statusButton" text="Status abrufen" onAction="#openStatusPage" styleClass="nav-button"/>
+        </HBox>
+    </VBox>
+</VBox>
+
