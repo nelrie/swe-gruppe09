@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,7 +44,8 @@ public class FeedbackService {
 
 
     // Nach GitHub Copilot und Analyse der Metriken wurde die Methode wie folgt geändert:
-
+    // Übung 7: Überarbeitung durch funktionales Konzept (Vorher)
+    /*
     public Feedback erstelleFeedback(String firstName, String lastName, String email, String message) {
 
         // Validierung der Eingaben
@@ -63,7 +65,21 @@ public class FeedbackService {
         statusService.setInitialStatus(feedbackID);
         return feedback;
     }
+*/
+    // Übung 7: Nachher - Feedback-Erstellung mit funktionalem Interface
+    public Feedback erstelleFeedback(String firstName, String lastName, String email, String message) {
+        validateInput(firstName, lastName, email, message);
 
+        String feedbackID = IdGenerator.generateShortUuid();
+        Feedback feedback = new Feedback(feedbackID, firstName, lastName, email, message);
+
+        Optional.of(feedback)
+                .ifPresent(feedbackRepository::save); // Method-Referenz
+
+        statusService.setInitialStatus(feedbackID);
+        return feedback;
+    }
+    
     private void validateInput(String firstName, String lastName, String email, String message) {
         if (!InputValidator.isValidFirstName(firstName)) {
             throw new IllegalArgumentException("Ungültiger Vorname");
@@ -79,8 +95,7 @@ public class FeedbackService {
         }
 
     }
-
-// Übung 7: Vorher
+    
     public Feedback findeFeedback(String feedbackID) {
         Feedback feedback = feedbackRepository.findById(feedbackID);
 
@@ -95,16 +110,7 @@ public class FeedbackService {
         return feedback;
     }
 
-     /* Übung 7: Nachher funktionalem Stil mit funktionalen Interfaces
-    public Feedback findeFeedback(String feedbackID) {
-        Feedback feedback = feedbackRepository.findAll().stream()
-            .filter(f -> f.getFeedbackID().equals(feedbackID))
-            .findFirst()
-            .orElse(null);
-     }
-     */
-
-    //Übung 7: Vorher
+    /*Übung 7: Vorher
     public void loescheFeedback(String feedbackID) {
         Feedback feedback = feedbackRepository.findById(feedbackID);
         if (feedback == null) {
@@ -112,30 +118,32 @@ public class FeedbackService {
         }
         feedbackRepository.deleteById(feedbackID);
     }
-    
- /* Übung 7: Nachher funktionaler Stil mit Verwendung von Optional<T>
+    */
+ 
+ //Übung 7: Nachher funktionaler Stil mit Verwendung von Optional<T>
 
     public Optional<Feedback> loescheFeedback(String feedbackID) {
-        Feedback feedback = feedbackRepository.findById(feedbackID);
-        if (feedback == null) {
-            return Optional.empty();
-        }
-        feedbackRepository.deleteById(feedbackID);
-        return Optional.of(feedback);
+        return Optional.ofNullable(feedbackRepository.findById(feedbackID))
+                .map(feedback -> {
+                    feedbackRepository.deleteById(feedbackID);
+                    return feedback;
+                });
     }
-     */
-
-    // Übung 7: Vorher
+     
+    /* Übung 7: Vorher
     public List<Feedback> findeAlleFeedbacks() {
         return feedbackRepository.findAll();
     }
-/* Übung 7: Nachher funktionaler Stil mit StreamAPI
+    */
+    
+// Übung 7: Nachher funktionaler Stil mit StreamAPI
 
   public List<Feedback> findeAlleFeedbacks() {
         return feedbackRepository.findAll().stream()
-             .filter(feedback -> feedback.getStatus() == Status.RECEIVED)
-             .collect(Collectors.toList());
- */
+                .filter(feedback -> feedback.getStatus() == Status.RECEIVED)
+                .collect(Collectors.toList());
 
+
+    }
 
 }
