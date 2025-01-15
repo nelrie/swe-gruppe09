@@ -7,7 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,55 +16,59 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
-import java.util.Objects;
 
 @Controller
-public class SharedController {
+public class SharedUIController {
 
     // Logger um Fehler zu protokollieren anstelle von e.printStackTrace()
-    private static final Logger logger = LoggerFactory.getLogger(SharedController.class);
+    private static final Logger logger = LoggerFactory.getLogger(SharedUIController.class);
 
     @FXML
-    private Button startButton;
+    private ToggleButton startButton;
 
     @FXML
-    private Button feedbackButton;
+    private ToggleButton feedbackButton;
 
     @FXML
-    private Button statusButton;
+    private ToggleButton statusButton;
 
 
     @Autowired
     private ApplicationContext context;
 
-    @FXML
-    private VBox root;
-
-    // CSS Einbindung
-    @FXML
-    public void initialize() {
-        // CSS-Datei hinzufügen, falls noch nicht hinzugefügt
-        if (!root.getStylesheets().contains("/css/styles.css")) {
-            root.getStylesheets().add(Objects.requireNonNull(getClass()
-                    .getResource("/css/styles.css")).toExternalForm());
-        }
-
-    }
 
     @FXML
     public void openStartPage(ActionEvent event) {
+        setSelectedButton(startButton);
         loadPage(event, "/fxml/start-page.fxml", "Startseite");
     }
 
 
-    // Methode zum Öffnen des Feedback Formulars
+    // Methode zum Öffnen des Feedback-Formulars
     @FXML
-    private void openFeedbackForm(ActionEvent event) {
+    public void openFeedbackForm(ActionEvent event) {
+        setSelectedButton(feedbackButton);
         loadPage(event, "/fxml/feedback-form.fxml", "Feedback Formular");
     }
 
+    // Methode zum Öffnen der Status Seite
+    @FXML
+    public void openStatusPage(ActionEvent event) {
+        setSelectedButton(statusButton);
+        loadPage(event, "/fxml/status-page.fxml", "Statusseite");
 
-// Methode zum Laden der Seite
+    }
+
+    // Styling der Button, wenn selektiert
+    private void setSelectedButton(ToggleButton selectedButton) {
+        System.out.println("Selected button: " + selectedButton.getText());
+        startButton.setSelected(false);
+        feedbackButton.setSelected(false);
+        statusButton.setSelected(false);
+        selectedButton.setSelected(true);
+    }
+
+    // Methode zum Laden der Seite
     @FXML
     private void loadPage(ActionEvent event, String fxmlFile, String title) {
         try {
@@ -82,18 +86,13 @@ public class SharedController {
                 throw new IllegalArgumentException("Event source is not a Node");
             }
         } catch (IOException e) {
-            logger.error("Fehler beim Laden der Seite: " + fxmlFile, e);
+            logger.error("Fehler beim Laden der Seite: {}", fxmlFile, e);
         } catch (IllegalStateException e) {
-            logger.error("Ungültiges Event-Objekt: " + e.getMessage(), e);
+            logger.error("Ungültiges Event-Objekt: {}", e.getMessage(), e);
 
         }
 
     }
 
-    // Methode zum Öffnen der Status Seite
-    @FXML
-    private void openStatusPage(ActionEvent event) {
-        loadPage(event, "/fxml/status-page.fxml", "Statusseite");
 
-    }
 }

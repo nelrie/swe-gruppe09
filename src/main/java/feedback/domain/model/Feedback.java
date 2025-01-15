@@ -1,10 +1,8 @@
 package feedback.domain.model;
 
+import jakarta.persistence.*;
 import status.domain.model.Status;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import feedback.domain.valueobjects.*;
 
 @Entity
 public class Feedback {
@@ -12,28 +10,34 @@ public class Feedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String feedbackID;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String message;
+
+    @Embedded
+    private FullName fullName;
+    @Embedded
+    private Email Email;
+
+    @Embedded
+    private Message Message;
+
     private Status status;
 
     public Feedback() {
         //No-Args-Konstruktor für JPA
     }
-    public Feedback(String feedbackID, String firstName, String lastName, String email, String message) {
+    public Feedback(String feedbackID, FullName fullName, Email email, Message message) {
         this.feedbackID = feedbackID;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.message = message;
+        this.fullName = fullName;
+        this.Email = email;
+        this.Message = message;
         this.status = Status.RECEIVED;
     }
 
 
-@Override
+
+
+    @Override
 public String toString() {
-        return "Feedback von " + firstName + " " + lastName + " (" + email + "): " + message;
+        return "Feedback von " + fullName + "(" + Email + "): " + Message;
 }
 
     //Getter und Setter für ID
@@ -46,33 +50,41 @@ public String toString() {
     }
 
 
-    //Getter und Setter für firstName
-    public String getFirstName() {
-        return firstName;
+    public FullName getFullName() {
+        return fullName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFullName(FullName fullName) {
+        this.fullName = fullName;
     }
 
+//    //Getter und Setter für firstName
+//    public String getFirstName() {
+//        return firstName;
+//    }
+//
+//    public void setFirstName(String firstName) {
+//        this.firstName = firstName;
+//    }
 
-    //Getter und Setter für Nachname
-    public String getLastName() {
-        return lastName;
-    }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+//    //Getter und Setter für Nachname
+//    public String getLastName() {
+//        return lastName;
+//    }
+//
+//    public void setLastName(String lastName) {
+//        this.lastName = lastName;
+//    }
 
 
     //Getter und Setter für E-Mail
-    public String getEmail() {
-        return email;
+    public Email getEmail() {
+        return Email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(Email email) {
+        this.Email = email;
 
     }
 
@@ -86,12 +98,12 @@ public String toString() {
      }
 
     //Getter und Setter für Message
-    public String getMessage() {
-        return message;
+    public Message getMessage() {
+        return Message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMessage(Message message) {
+        this.Message = message;
     }
 
 

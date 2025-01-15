@@ -11,33 +11,36 @@
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="feedback.ui.controller.FeedbackFormController"
-      fx:id="root"
       prefWidth="800">
+
+    <!-- Einbindung der Header-Datei -->
     <fx:include source="header.fxml"/>
 
+    <!-- Einbindung der CSS-Dateien -->
     <stylesheets>
         <URL value="@/css/feedbackseite.css"/>
         <URL value="@/css/styles.css"/>
-
     </stylesheets>
-<VBox alignment="CENTER" spacing="20" prefWidth="600">
-    <Label text="Feedback Formular" styleClass="header"/>
-    <Label text="Wir freuen uns über Ihr Feedback. Bitte füllen Sie das folgende Formular aus." wrapText="true" styleClass="contentText" />
 
-    <GridPane  styleClass="grid-pane">
-        <Label text="Vorname:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="label"/>
-        <TextField fx:id="firstNameField" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="text-field"/>
+    <!-- Hauptinhalt -->
+    <VBox alignment="CENTER" spacing="20" prefWidth="600">
+        <Label text="Feedback Formular" styleClass="header"/>
+        <Label text="Wir freuen uns über Ihr Feedback. Bitte füllen Sie das folgende Formular aus." wrapText="true" styleClass="contentText" />
 
-        <Label text="Nachname:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="label"/>
-        <TextField fx:id="lastNameField" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="text-field"/>
+        <GridPane  styleClass="grid-pane">
+            <Label text="Vorname:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="label"/>
+            <TextField fx:id="firstNameField" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="text-field"/>
 
-        <Label text="Email:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="label"/>
-        <TextField fx:id="emailField" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="text-field"/>
+            <Label text="Nachname:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="label"/>
+            <TextField fx:id="lastNameField" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="text-field"/>
 
-        <Label text="Nachricht:" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="label"/>
-        <TextArea fx:id="messageArea" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="text-field"/>
+            <Label text="Email:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="label"/>
+            <TextField fx:id="emailField" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="text-field"/>
 
-        <Button fx:id="submitButton" text="Abschicken" onAction="#handleSubmitFeedback" GridPane.rowIndex="4" GridPane.columnIndex="1" styleClass="submitButton"/>
-    </GridPane>
-</VBox>
+            <Label text="Nachricht:" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="label"/>
+            <TextArea fx:id="messageArea" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="text-field"/>
+
+            <Button fx:id="submitButton" text="Abschicken" onAction="#handleSubmitFeedback" GridPane.rowIndex="4" GridPane.columnIndex="1" styleClass="submitButton"/>
+        </GridPane>
+    </VBox>
 </VBox>

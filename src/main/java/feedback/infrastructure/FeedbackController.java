@@ -1,8 +1,9 @@
 package feedback.infrastructure;
 
+import feedback.application.commands.CreateFeedbackCommand;
+import feedback.domain.valueobjects.FullName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +11,9 @@ import java.util.List;
 
 import feedback.application.service.FeedbackService;
 import feedback.domain.model.Feedback;
+import feedback.domain.valueobjects.Email;
+import feedback.domain.valueobjects.FullName;
+import feedback.domain.valueobjects.Message;
 
 @RestController
 @RequestMapping("/feedbacks")
@@ -17,7 +21,6 @@ public class FeedbackController {
 
     private final FeedbackService feedbackService;
 
-    // Konstruktor um den FeedbackService zu injizieren
     @Autowired
     public FeedbackController(FeedbackService feedbackService) {
         this.feedbackService = feedbackService;
@@ -25,14 +28,13 @@ public class FeedbackController {
 
     // @RequestBody weist Spring Boot an, den Inhalt des HTTP-Requests in ein Feedback Objekt umwandeln soll
     @PostMapping
-    public ResponseEntity<Feedback> erstelleFeedback(@RequestBody Feedback feedback) {
-         Feedback erstelltesFeedback = feedbackService.erstelleFeedback(
-                feedback.getFirstName(),
-                feedback.getLastName(),
-                feedback.getEmail(),
-                feedback.getMessage()
-        );
-         return new ResponseEntity<>(erstelltesFeedback, HttpStatus.CREATED);
+    public ResponseEntity<Feedback> erstelleFeedback(@RequestBody CreateFeedbackCommand feedbackCommand) {
+        try {
+            Feedback erstelltesFeedback = feedbackService.erstelleFeedback(feedbackCommand);
+            return new ResponseEntity<>(erstelltesFeedback, HttpStatus.CREATED);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 //@PathVariable String id: sagt dem Programm, dass es den Wert des Pfadparameters id in die Methode einfügen soll
     // die Pfadvariable ist ein Teil der URL, wird im Controller verwendet,um das spezifische Feedback zu identifizieren, das abgerufen oder gelöscht werden soll
@@ -41,9 +43,9 @@ public class FeedbackController {
     public ResponseEntity<Feedback> findeFeedback(@PathVariable String id) {
         Feedback feedback = feedbackService.findeFeedback(id);
         if (feedback == null) {
-            return new ResponseEntity<>(HttpStatus.OK);
-        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(HttpStatus.OK);
         }
     }
 
