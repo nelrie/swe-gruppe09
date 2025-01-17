@@ -1,7 +1,6 @@
 package feedback.infrastructure;
 
 import feedback.application.commands.CreateFeedbackCommand;
-import feedback.domain.valueobjects.FullName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,9 +10,6 @@ import java.util.List;
 
 import feedback.application.service.FeedbackService;
 import feedback.domain.model.Feedback;
-import feedback.domain.valueobjects.Email;
-import feedback.domain.valueobjects.FullName;
-import feedback.domain.valueobjects.Message;
 
 @RestController
 @RequestMapping("/feedbacks")

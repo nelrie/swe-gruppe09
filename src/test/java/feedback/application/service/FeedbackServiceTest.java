@@ -12,14 +12,12 @@ import feedback.exceptions.validation.IdGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import feedback.domain.model.Feedback;
 import feedback.infrastructure.repository.FeedbackRepository;
-import feedback.infrastructure.repository.MockFeedbackRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.ApplicationEventPublisher;
 import status.application.service.StatusService;
-import status.infrastructure.repository.MockStatusRepository;
 import status.infrastructure.repository.StatusRepository;
 
 @ExtendWith(MockitoExtension.class)
