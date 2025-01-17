@@ -5,20 +5,15 @@ import feedback.domain.events.FeedbackAngelegtEvent;
 import feedback.domain.model.Feedback;
 import feedback.exceptions.validation.IdGenerator;
 import feedback.infrastructure.repository.FeedbackRepository;
-import feedback.domain.model.Feedback;
-import feedback.exceptions.validation.InputValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.stereotype.Service;
 import status.application.service.StatusService;
 import status.domain.model.Status;
 
@@ -50,24 +45,6 @@ public class FeedbackService {
 
     }
 
-/*
-    public Feedback erstelleFeedback(CreateFeedbackCommand command) {
-        // Erzeugt eine zufällige ID -> vermeidet doppelte IDs
-        String feedbackID = IdGenerator.generateShortUuid();
-        Feedback feedback = new Feedback(feedbackID, command.fullName(), command.email(), command.message());
-        feedbackRepository.save(feedback);
-
-        // Setzt und speichert den initialen Status
-        statusService.setInitialStatus(feedbackID);
-
-        // Erstellen und Veröffentlichen des Events
-        FeedbackAngelegtEvent event = new FeedbackAngelegtEvent(feedbackID, command.fullName(), command.email(), command.message());
-        eventPublisher.publishEvent(event);
-
-        return feedback;
-    }
-
- */
 
     // Übung 7: Nachher - Feedback-Erstellung mit funktionalem Interface
     public Feedback erstelleFeedback(CreateFeedbackCommand command) {
@@ -80,24 +57,13 @@ public class FeedbackService {
                 .ifPresent(feedbackRepository::save); // Method-Referenz
 
         statusService.setInitialStatus(feedbackID);
+
+        // Event veröffentlichen
+        FeedbackAngelegtEvent event = new FeedbackAngelegtEvent(feedbackID, command.fullName(), command.email(), command.message());
+        eventPublisher.publishEvent(event);
         return feedback;
     }
 
-//    private void validateInput(String firstName, String lastName, String email, String message) {
-//        if (!InputValidator.isValidFirstName(firstName)) {
-//            throw new IllegalArgumentException("Ungültiger Vorname");
-//        }
-//        if (!InputValidator.isValidLastName(lastName)) {
-//            throw new IllegalArgumentException("Ungültiger Nachname");
-//        }
-//        if (!InputValidator.isValidEmail(email)) {
-//            throw new IllegalArgumentException("Ungültige E-Mail-Adresse");
-//        }
-//        if (!InputValidator.isValidMessage(message)) {
-//            throw new IllegalArgumentException("Nachricht darf nicht leer sein");
-//        }
-//
-//    }
 
     public Feedback findeFeedback(String feedbackID) {
         Feedback feedback = feedbackRepository.findById(feedbackID);

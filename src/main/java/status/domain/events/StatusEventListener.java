@@ -7,12 +7,30 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class StatusEventListener {
-    private static final Logger logger =
-            LoggerFactory.getLogger(status.domain.events.StatusEventListener.class);
+    private static final Logger logger = LoggerFactory.getLogger(StatusEventListener.class);
+
+
+
 
     @EventListener
-    public void handleStatusAbgerufen(StatusAngepasstEvent event) {
-        logger.info("StatusAbgerufenEvent empfangen: {}", event);
-
+    public void handleStatusAngepasstEvent(StatusAngepasstEvent event) {
+        handleEvent(event);
     }
+
+    @EventListener
+    public void handleStatusEmpfangenEvent(StatusEmpfangenEvent event) {
+        handleEvent(event);
+    }
+
+    @EventListener
+    public void handleStatusAbgefragtEvent(StatusAbgefragtEvent event) {
+        handleEvent(event);
+    }
+
+    // Logger info wird für den jeweiligen Event-Typ (event.getClass().getSimpleName()) zurückgegeben
+    private void handleEvent(StatusEvent event){
+        logger.info("{} empfangen für Feedback-ID: {}", event.getClass().getSimpleName(), event.getFeedbackID());
+        event.processEvent();
+    }
+
 }

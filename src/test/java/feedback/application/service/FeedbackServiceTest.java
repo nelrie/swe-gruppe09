@@ -18,7 +18,11 @@ import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.ApplicationEventPublisher;
 import status.application.service.StatusService;
+import status.domain.model.Status;
 import status.infrastructure.repository.StatusRepository;
+
+import java.util.List;
+import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
 public class FeedbackServiceTest {
@@ -130,8 +134,10 @@ public void setUp() {
         feedback = new Feedback("12345", fullName, email, message);
         when(feedbackRepository.findById("12345")).thenReturn(feedback);
 
-        feedbackService.loescheFeedback("12345");
+        Optional<Feedback> geloeschtesFeedback = feedbackService.loescheFeedback("12345");
 
+        assertTrue(geloeschtesFeedback.isPresent());
+        assertEquals(feedback, geloeschtesFeedback.get());
         verify(feedbackRepository).deleteById("12345");
 //
     }
@@ -149,6 +155,22 @@ public void setUp() {
         assertEquals(email, gefundenesFeedback.getEmail());
         assertEquals(message, gefundenesFeedback.getMessage());
 
+    }
+    @Test
+    public void testFindeAlleFeedbacks() {
+        Feedback feedback1 = new Feedback("12345", fullName, email, message);
+        Feedback feedback2 = new Feedback("67890", new FullName("Max", "Mustermann"), new Email("max.mustermann@example.com"), new Message("Feedback von Max"));
+        feedback1.setStatus(Status.RECEIVED);
+        feedback2.setStatus(Status.RECEIVED);
+
+        when(feedbackRepository.findAll()).thenReturn(List.of(feedback1, feedback2));
+
+        List<Feedback> feedbackList = feedbackService.findeAlleFeedbacks();
+
+        assertNotNull(feedbackList);
+        assertEquals(2, feedbackList.size());
+        assertTrue(feedbackList.contains(feedback1));
+        assertTrue(feedbackList.contains(feedback2));
     }
 
 }
