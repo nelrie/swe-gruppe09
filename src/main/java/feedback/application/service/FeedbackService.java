@@ -1,24 +1,23 @@
 package feedback.application.service;
 
-import java.util.List;
-import java.util.UUID;
-
+import feedback.application.commands.CreateFeedbackCommand;
+import feedback.domain.events.FeedbackAngelegtEvent;
+import feedback.domain.model.Feedback;
 import feedback.exceptions.validation.IdGenerator;
 import feedback.infrastructure.repository.FeedbackRepository;
-import feedback.domain.model.Feedback;
-import feedback.exceptions.validation.InputValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.context.ApplicationEventPublisher;
 import status.application.service.StatusService;
 import status.domain.model.Status;
+
+import java.util.List;
 
 
 @Service
@@ -34,68 +33,38 @@ public class FeedbackService {
     @Autowired
     private final StatusService statusService;
 
+    @Autowired
+    private final ApplicationEventPublisher eventPublisher;
+
     // Konstruktor
-    @Autowired //Vorschlag LLM
-    public FeedbackService(FeedbackRepository feedbackRepository, StatusService statusService) {
+    @Autowired
+    public FeedbackService(FeedbackRepository feedbackRepository, StatusService statusService, ApplicationEventPublisher eventPublisher) {
         this.feedbackRepository = feedbackRepository;
         this.statusService = statusService;
+        this.eventPublisher = eventPublisher;
 
     }
 
 
-    // Nach GitHub Copilot und Analyse der Metriken wurde die Methode wie folgt geändert:
-    // Übung 7: Überarbeitung durch funktionales Konzept (Vorher)
-    /*
-    public Feedback erstelleFeedback(String firstName, String lastName, String email, String message) {
-
-        // Validierung der Eingaben
-        validateInput(firstName, lastName, email, message);
-
-        // Erzeugt eine zufällige ID -> vermeidet doppelte IDs
-        String feedbackID = IdGenerator.generateShortUuid();
-
-        //Erstellt ein neues Feedback Objekt mit der generierten ID
-        Feedback feedback = new Feedback(feedbackID, firstName, lastName, email, message);
-
-
-        //Speicher das Feedback im Repository
-        feedbackRepository.save(feedback);
-
-        // Setzt und speichert den initialen Status
-        statusService.setInitialStatus(feedbackID);
-        return feedback;
-    }
-*/
     // Übung 7: Nachher - Feedback-Erstellung mit funktionalem Interface
-    public Feedback erstelleFeedback(String firstName, String lastName, String email, String message) {
-        validateInput(firstName, lastName, email, message);
+    public Feedback erstelleFeedback(CreateFeedbackCommand command) {
+       // validateInput(firstName, lastName, email, message);
 
         String feedbackID = IdGenerator.generateShortUuid();
-        Feedback feedback = new Feedback(feedbackID, firstName, lastName, email, message);
+        Feedback feedback = new Feedback(feedbackID, command.fullName(), command.email(), command.message());
 
         Optional.of(feedback)
                 .ifPresent(feedbackRepository::save); // Method-Referenz
 
         statusService.setInitialStatus(feedbackID);
+
+        // Event veröffentlichen
+        FeedbackAngelegtEvent event = new FeedbackAngelegtEvent(feedbackID, command.fullName(), command.email(), command.message());
+        eventPublisher.publishEvent(event);
         return feedback;
     }
-    
-    private void validateInput(String firstName, String lastName, String email, String message) {
-        if (!InputValidator.isValidFirstName(firstName)) {
-            throw new IllegalArgumentException("Ungültiger Vorname");
-        }
-        if (!InputValidator.isValidLastName(lastName)) {
-            throw new IllegalArgumentException("Ungültiger Nachname");
-        }
-        if (!InputValidator.isValidEmail(email)) {
-            throw new IllegalArgumentException("Ungültige E-Mail-Adresse");
-        }
-        if (!InputValidator.isValidMessage(message)) {
-            throw new IllegalArgumentException("Nachricht darf nicht leer sein");
-        }
 
-    }
-    
+
     public Feedback findeFeedback(String feedbackID) {
         Feedback feedback = feedbackRepository.findById(feedbackID);
 
@@ -106,7 +75,7 @@ public class FeedbackService {
             throw new IllegalArgumentException("Das Feedback konnte nicht gefunden werden.");
         }
         else
-            logger.info("Feedback von: {} {} {} {}", feedback.getFirstName(), feedback.getLastName(), feedback.getEmail(), feedback.getMessage());
+            logger.info("Feedback von: {} {} {}", feedback.getFullName(), feedback.getEmail(), feedback.getMessage());
         return feedback;
     }
 
@@ -119,7 +88,7 @@ public class FeedbackService {
         feedbackRepository.deleteById(feedbackID);
     }
     */
- 
+
  //Übung 7: Nachher funktionaler Stil mit Verwendung von Optional<T>
 
     public Optional<Feedback> loescheFeedback(String feedbackID) {
@@ -129,13 +98,13 @@ public class FeedbackService {
                     return feedback;
                 });
     }
-     
+
     /* Übung 7: Vorher
     public List<Feedback> findeAlleFeedbacks() {
         return feedbackRepository.findAll();
     }
     */
-    
+
 // Übung 7: Nachher funktionaler Stil mit StreamAPI
 
   public List<Feedback> findeAlleFeedbacks() {

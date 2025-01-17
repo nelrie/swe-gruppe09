@@ -30,3 +30,19 @@
 *.exe
 *.out
 *.app
+
+# Log files
+*.log
+
+# Iml files
+*iml
+
+.idea/
+
+/target/
+
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/

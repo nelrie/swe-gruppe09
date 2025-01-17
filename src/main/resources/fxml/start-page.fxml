@@ -8,13 +8,17 @@
 <?import java.net.URL?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="feedback.ui.controller.StartPageController"
-      fx:id="root"
-      >
+      fx:controller="feedback.ui.controller.StartPageController">
+
+    <!-- Einbindung der Header-Datei -->
     <fx:include source="header.fxml"/>
+
+    <!-- Einbindung der CSS-Datei -->
     <stylesheets>
         <URL value="@/css/styles.css" />
     </stylesheets>
+
+    <!-- Hauptinhalt-->
     <VBox alignment="CENTER" spacing="20" prefWidth="600" >
         <Label text="Willkommen im Bürgerbeteiligungssystem!" styleClass="header"/>
         <TextFlow fx:id="contentText" styleClass="contentText" textAlignment="CENTER" maxWidth="800">

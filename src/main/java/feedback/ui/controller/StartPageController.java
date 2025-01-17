@@ -15,8 +15,6 @@ public class StartPageController {
     @Autowired
     private ApplicationContext context;
 
-    @FXML
-    private VBox root;
 
     @FXML
     private TextFlow contentText;
@@ -26,11 +24,11 @@ public class StartPageController {
     @FXML
     public void initialize() {
 
-        // CSS-Datei hinzufügen
-        if (!root.getStylesheets().contains("/css/styles.css")) {
-            root.getStylesheets().add(Objects.requireNonNull(getClass()
-                    .getResource("/css/styles.css")).toExternalForm());
-        }
+//        // CSS-Datei hinzufügen
+//        if (!root.getStylesheets().contains("/css/styles.css")) {
+//            root.getStylesheets().add(Objects.requireNonNull(getClass()
+//                    .getResource("/css/styles.css")).toExternalForm());
+//        }
 
         contentText.setLineSpacing(10);
         }

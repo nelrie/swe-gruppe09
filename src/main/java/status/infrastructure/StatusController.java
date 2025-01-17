@@ -12,9 +12,13 @@ import status.domain.model.Status;
 @RequestMapping("/status")
 public class StatusController {
 
-    @Autowired
-    private StatusService statusService;
 
+    private final StatusService statusService;
+
+    @Autowired
+    public StatusController(StatusService statusService) {
+        this.statusService = statusService;
+    }
 
 
     @GetMapping("/{feedbackID}")

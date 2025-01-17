@@ -7,20 +7,21 @@
 <?import java.net.URL?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="feedback.ui.controller.SharedController"
-      fx:id="root">
+      fx:controller="feedback.ui.controller.SharedUIController">
 
+    <!-- Einbindung der CSS-Datei -->
     <stylesheets>
         <URL value="@/css/styles.css" />
     </stylesheets>
 
+    <!-- Hauptinhalt -->
     <VBox alignment="CENTER">
         <Label text="CityFeedback" styleClass="title" />
         <Label text="das Bürgerbeteiligungssystem" styleClass="subtitle" />
-        <HBox fx:id="navbar" styleClass="navbar" alignment="CENTER">
-            <Button fx:id="startButton" text="Startseite" onAction="#openStartPage" styleClass="nav-button"/>
-            <Button fx:id="feedbackButton" text="Feedback einreichen" onAction="#openFeedbackForm" styleClass="nav-button"/>
-            <Button fx:id="statusButton" text="Status abrufen" onAction="#openStatusPage" styleClass="nav-button"/>
+        <HBox styleClass="navbar" alignment="CENTER">
+            <ToggleButton fx:id="startButton" text="Startseite" onAction="#openStartPage" styleClass="nav-button"/>
+            <ToggleButton fx:id="feedbackButton" text="Feedback einreichen" onAction="#openFeedbackForm" styleClass="nav-button"/>
+            <ToggleButton fx:id="statusButton" text="Status abrufen" onAction="#openStatusPage" styleClass="nav-button"/>
         </HBox>
     </VBox>
 </VBox>
