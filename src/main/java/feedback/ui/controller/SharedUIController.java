@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
@@ -17,7 +16,7 @@ import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 
-@Controller
+@Controller("sharedUIController")
 public class SharedUIController {
 
     // Logger um Fehler zu protokollieren anstelle von e.printStackTrace()
