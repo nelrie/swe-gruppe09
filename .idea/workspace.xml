@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="10105d97-aa13-400a-936b-b337154bf850" name="Changes" comment="Feedback nach Status und E-Mail alphabetisch gruppiert." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Collection-Processing" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.FeedbackServiceTest.executor": "Run",
+    "git-widget-placeholder": "main",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
+  <component name="RunManager" selected="JUnit.FeedbackServiceTest">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="feedback.Main" />
+      <module name="swe-gruppe09" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="feedback.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FeedbackServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="swe-gruppe09" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="feedback.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="feedback.service" />
+      <option name="MAIN_CLASS_NAME" value="feedback.service.FeedbackServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="feedback.exceptions.validation.* and 21 more (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="swe-gruppe09" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="feedback.exceptions.validation.*" />
+        <pattern testClass="frontend.feedback.*" />
+        <pattern testClass="feedback.*" />
+        <pattern testClass=".*" />
+        <pattern testClass="status.domain.model.*" />
+        <pattern testClass="fxml.*" />
+        <pattern testClass="status.*" />
+        <pattern testClass="feedback.exceptions.validation.InputValidatorTest" />
+        <pattern testClass="logging.*" />
+        <pattern testClass="feedback.ui.controller.*" />
+        <pattern testClass="status.StatusTest" />
+        <pattern testClass="feedback.validation.*" />
+        <pattern testClass="feedback.infrastructure.*" />
+        <pattern testClass="feedback.service.FeedbackServiceTest" />
+        <pattern testClass="feedback.repository.*" />
+        <pattern testClass="status.application.service.*" />
+        <pattern testClass="feedback.validation.InputValidatorTest" />
+        <pattern testClass="feedback.service.*" />
+        <pattern testClass="feedback.application.service.FeedbackServiceTest" />
+        <pattern testClass="feedback.domain.*" />
+        <pattern testClass="feedback.application.*" />
+        <pattern testClass="feedback.application.service.*" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="feedback.service in swe-gruppe09" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="swe-gruppe09" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="feedback.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="feedback.service" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="swe-gruppe09" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="feedback.Main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="feedback.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.feedback.exceptions.validation.* and 21 more (2)" />
+      <item itemvalue="JUnit.feedback.service in swe-gruppe09" />
+      <item itemvalue="JUnit.FeedbackServiceTest" />
+      <item itemvalue="Spring Boot.Main" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.FeedbackServiceTest" />
+        <item itemvalue="Spring Boot.Main" />
+        <item itemvalue="JUnit.feedback.service in swe-gruppe09" />
+        <item itemvalue="JUnit.feedback.exceptions.validation.* and 21 more (2)" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Feedback nach Status und E-Mail alphabetisch gruppiert." />
+    <option name="LAST_COMMIT_MESSAGE" value="Feedback nach Status und E-Mail alphabetisch gruppiert." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/feedback/application/service/FeedbackService.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/feedback/service/FeedbackServiceTest.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

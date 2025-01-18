@@ -1,0 +1,25 @@
+
+
+.submitButton{
+    -fx-background-color: #8ba644;
+    -fx-text-fill: #fff;
+    -fx-font-size: 16px;
+    -fx-padding: 10px 20px;
+}
+
+.submitButton:hover {
+    -fx-text-fill: #5a7d1f;
+}
+
+.statusLabel {
+    -fx-font-size: 16px;
+    -fx-padding: 10px 20px;
+}
+
+.idField {
+    -fx-font-size: 16px;
+    -fx-padding: 10px 20px;
+}
+
+
+
