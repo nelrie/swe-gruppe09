@@ -3,11 +3,14 @@ package feedback.application.service;
 import feedback.application.commands.CreateFeedbackCommand;
 import feedback.domain.events.FeedbackAngelegtEvent;
 import feedback.domain.model.Feedback;
+import feedback.domain.valueobjects.Email;
 import feedback.exceptions.validation.IdGenerator;
 import feedback.infrastructure.repository.FeedbackRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.Optional;
 
@@ -115,4 +118,50 @@ public class FeedbackService {
 
     }
 
+    //Feedback nach Anzahl des Status anzeigen
+    public Map<Status, Long> statistikFeedbackProStatus() {
+        // Abrufen aller Feedbacks
+        List<Feedback> feedbacks = feedbackRepository.findAll();
+
+        // Null- oder Leere-Prüfung
+        if (feedbacks == null || feedbacks.isEmpty()) {
+            logger.warn("Es wurden keine Feedbacks gefunden.");
+            return Map.of(); // Gibt eine leere, unveränderliche Map zurück
+        }
+
+        // Gruppieren und Zählen nach Status
+        Map<Status, Long> statistik = feedbacks.stream()
+                .collect(Collectors.groupingBy(
+                        Feedback::getStatus,   // Gruppierungsschlüssel: Status des Feedbacks
+                        Collectors.counting()  // Zählfunktion
+                ));
+
+        // Logging für Debugging
+        statistik.forEach((status, count) -> logger.info("Status: {}, Anzahl: {}", status, count));
+
+        return statistik; // Rückgabe der Statistik
+    }
+
+    // E-Mail alphabetisch anzeigen
+    public List<String> getAllEmails() {
+        // Alle Feedbacks aus dem Repository abrufen
+        List<Feedback> feedbacks = feedbackRepository.findAll();
+
+        // Null- oder Leerprüfung
+        if (feedbacks == null || feedbacks.isEmpty()) {
+            logger.warn("Keine Feedbacks gefunden.");
+            return List.of(); // Gibt eine leere Liste zurück
+        }
+
+        // Informationen loggen: Anzahl der Feedbacks
+        logger.info("Anzahl der abgerufenen Feedbacks: {}", feedbacks.size());
+
+        // E-Mail-Adressen extrahieren, sortieren und zurückgeben
+        return feedbacks.stream()
+                .map(Feedback::getEmail)        // Nur die E-Mail-Adressen extrahieren
+                .map(Email::toString)           // Sicherstellen, dass die E-Mail ein String ist
+                .distinct()                     // Duplikate entfernen
+                .sorted()                       // Alphabetisch sortieren
+                .collect(Collectors.toList());  // Ergebnisse in eine Liste sammeln
+    }
 }
