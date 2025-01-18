@@ -8,42 +8,42 @@ public class InputValidatorTest {
 
     @Test
     public void testValidFirstName() {
-        assertTrue(InputValidator.isValidFirstName("John"));
-        assertTrue(InputValidator.isValidFirstName("John Doe"));
-        assertTrue(InputValidator.isValidFirstName("Lisa-Marie"));
-        assertFalse(InputValidator.isValidFirstName("John123"));
-        assertFalse(InputValidator.isValidFirstName(""));
+        assertTrue(InputValidator.isValidName("John"));
+        assertTrue(InputValidator.isValidName("John Doe"));
+        assertTrue(InputValidator.isValidName("Lisa-Marie"));
+        assertFalse(InputValidator.isValidName("John123"));
+        assertFalse(InputValidator.isValidName(""));
 
         //Testen der Randfälle:
         
-        assertFalse(InputValidator.isValidFirstName("  "));
-        assertFalse(InputValidator.isValidFirstName("@"));
-        assertFalse(InputValidator.isValidFirstName("%*#"));
-        assertFalse(InputValidator.isValidFirstName("Lisa--Marie"));
-        assertTrue(InputValidator.isValidFirstName("Übermuth"));
-        assertTrue(InputValidator.isValidFirstName("Straße"));
-        assertFalse(InputValidator.isValidFirstName(" Lisa"));
-        assertFalse(InputValidator.isValidFirstName("Lisa "));
+        assertFalse(InputValidator.isValidName("  "));
+        assertFalse(InputValidator.isValidName("@"));
+        assertFalse(InputValidator.isValidName("%*#"));
+        assertFalse(InputValidator.isValidName("Lisa--Marie"));
+        assertTrue(InputValidator.isValidName("Übermuth"));
+        assertTrue(InputValidator.isValidName("Straße"));
+        assertFalse(InputValidator.isValidName(" Lisa"));
+        assertFalse(InputValidator.isValidName("Lisa "));
         
     }
     @Test
     public void testValidLastName() {
-        assertTrue(InputValidator.isValidLastName("Umlauf"));
-        assertTrue(InputValidator.isValidLastName("John Doe"));
-        assertTrue(InputValidator.isValidLastName("Lisa-Marie"));
-        assertFalse(InputValidator.isValidLastName("John123"));
-        assertFalse(InputValidator.isValidLastName(""));
+        assertTrue(InputValidator.isValidName("Umlauf"));
+        assertTrue(InputValidator.isValidName("John Doe"));
+        assertTrue(InputValidator.isValidName("Lisa-Marie"));
+        assertFalse(InputValidator.isValidName("John123"));
+        assertFalse(InputValidator.isValidName(""));
 
         //Testen der Randfälle:
 
-        assertFalse(InputValidator.isValidLastName("  "));
-        assertFalse(InputValidator.isValidLastName("@"));
-        assertFalse(InputValidator.isValidLastName("%*#"));
-        assertFalse(InputValidator.isValidLastName("Lisa--Marie"));
-        assertTrue(InputValidator.isValidLastName("Übermuth"));
-        assertTrue(InputValidator.isValidLastName("Straße"));
-        assertFalse(InputValidator.isValidLastName(" Lisa"));
-        assertFalse(InputValidator.isValidLastName("Lisa "));
+        assertFalse(InputValidator.isValidName("  "));
+        assertFalse(InputValidator.isValidName("@"));
+        assertFalse(InputValidator.isValidName("%*#"));
+        assertFalse(InputValidator.isValidName("Lisa--Marie"));
+        assertTrue(InputValidator.isValidName("Übermuth"));
+        assertTrue(InputValidator.isValidName("Straße"));
+        assertFalse(InputValidator.isValidName(" Lisa"));
+        assertFalse(InputValidator.isValidName("Lisa "));
 
     }
 

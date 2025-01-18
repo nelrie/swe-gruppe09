@@ -1,5 +1,6 @@
 package status.domain.model;
 
+
 // Drei verschiedene Statusanzeigen
 public enum Status {
     RECEIVED("Feedback erhalten"),
