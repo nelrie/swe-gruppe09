@@ -20213,3 +20213,225 @@ Feature not supported: "CHARACTER VARYING(255)"; SQL statement:
 2025-01-16 23:06:35 [RMI TCP Connection(3)-192.168.178.76] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-01-16 23:06:35 [RMI TCP Connection(3)-192.168.178.76] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2025-01-16 23:06:35 [RMI TCP Connection(3)-192.168.178.76] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-01-18 15:38:38 [JavaFX-Launcher] INFO  o.s.boot.SpringApplication - Starting application using Java 23.0.1 with PID 20944 (started by Jan Laaser in C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09)
+2025-01-18 15:38:38 [JavaFX-Launcher] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-18 15:38:38 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\application\service\FeedbackService.class]
+2025-01-18 15:38:38 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\domain\events\FeedbackEventListener.class]
+2025-01-18 15:38:38 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\infrastructure\FeedbackController.class]
+2025-01-18 15:38:38 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Ignored because not a concrete top-level class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\infrastructure\repository\FeedbackRepository.class]
+2025-01-18 15:38:38 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\infrastructure\repository\MockFeedbackRepository.class]
+2025-01-18 15:38:38 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\infrastructure\SharedController.class]
+2025-01-18 15:38:38 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\ui\controller\FeedbackFormController.class]
+2025-01-18 15:38:38 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\ui\controller\SharedUIController.class]
+2025-01-18 15:38:38 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\ui\controller\StartPageController.class]
+2025-01-18 15:38:38 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\application\service\StatusService.class]
+2025-01-18 15:38:39 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\domain\events\StatusEventListener.class]
+2025-01-18 15:38:39 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\infrastructure\repository\MockStatusRepository.class]
+2025-01-18 15:38:39 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Ignored because not a concrete top-level class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\infrastructure\repository\StatusRepository.class]
+2025-01-18 15:38:39 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\infrastructure\StatusController.class]
+2025-01-18 15:38:39 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\ui\controller\StatusPageController.class]
+2025-01-18 15:38:40 [JavaFX-Launcher] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-18 15:38:40 [JavaFX-Launcher] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 0 JPA repository interfaces.
+2025-01-18 15:38:41 [JavaFX-Launcher] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-01-18 15:38:41 [JavaFX-Launcher] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-18 15:38:41 [JavaFX-Launcher] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-18 15:38:41 [JavaFX-Launcher] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-01-18 15:38:41 [JavaFX-Launcher] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-01-18 15:38:41 [JavaFX-Launcher] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2647 ms
+2025-01-18 15:38:41 [JavaFX-Launcher] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-18 15:38:41 [JavaFX-Launcher] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-01-18 15:38:41 [JavaFX-Launcher] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-01-18 15:38:42 [JavaFX-Launcher] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-18 15:38:42 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-18 15:38:42 [JavaFX-Launcher] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-01-18 15:38:42 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-18 15:38:42 [JavaFX-Launcher] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-18 15:38:43 [JavaFX-Launcher] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-18 15:38:43 [JavaFX-Launcher] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-18 15:38:43 [JavaFX-Launcher] INFO  s.ui.controller.StatusPageController - StatusPageController wird von Spring erstellt.
+2025-01-18 15:38:43 [JavaFX-Launcher] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-18 15:38:44 [JavaFX-Launcher] DEBUG o.s.c.e.EventListenerMethodProcessor - 1 @EventListener methods processed on bean 'feedbackEventListener': {public void feedback.domain.events.FeedbackEventListener.handleFeedbackAngelegtEvent(feedback.domain.events.FeedbackAngelegtEvent)=@org.springframework.context.event.EventListener(classes={}, condition="", id="", value={})}
+2025-01-18 15:38:44 [JavaFX-Launcher] DEBUG o.s.c.e.EventListenerMethodProcessor - 3 @EventListener methods processed on bean 'statusEventListener': {public void status.domain.events.StatusEventListener.handleStatusAbgefragtEvent(status.domain.events.StatusAbgefragtEvent)=@org.springframework.context.event.EventListener(classes={}, condition="", id="", value={}), public void status.domain.events.StatusEventListener.handleStatusAngepasstEvent(status.domain.events.StatusAngepasstEvent)=@org.springframework.context.event.EventListener(classes={}, condition="", id="", value={}), public void status.domain.events.StatusEventListener.handleStatusEmpfangenEvent(status.domain.events.StatusEmpfangenEvent)=@org.springframework.context.event.EventListener(classes={}, condition="", id="", value={})}
+2025-01-18 15:38:44 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase -2147483647
+2025-01-18 15:38:44 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Successfully started bean 'springBootLoggingLifecycle'
+2025-01-18 15:38:44 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 2147481599
+2025-01-18 15:38:44 [JavaFX-Launcher] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-18 15:38:44 [JavaFX-Launcher] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-01-18 15:38:44 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Successfully started bean 'webServerStartStop'
+2025-01-18 15:38:44 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 2147482623
+2025-01-18 15:38:44 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Successfully started bean 'webServerGracefulShutdown'
+2025-01-18 15:38:44 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 2147483647
+2025-01-18 15:38:44 [JavaFX-Launcher] INFO  o.s.boot.SpringApplication - Started application in 6.679 seconds (process running for 8.924)
+2025-01-18 15:38:47 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147483647
+2025-01-18 15:38:47 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Bean 'applicationTaskExecutor' completed its stop procedure
+2025-01-18 15:38:47 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147482623
+2025-01-18 15:38:47 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Bean 'webServerGracefulShutdown' completed its stop procedure
+2025-01-18 15:38:47 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147481599
+2025-01-18 15:38:47 [JavaFX Application Thread] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-01-18 15:38:47 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Bean 'webServerStartStop' completed its stop procedure
+2025-01-18 15:38:47 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase -2147483647
+2025-01-18 15:38:47 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Bean 'springBootLoggingLifecycle' completed its stop procedure
+2025-01-18 15:38:47 [JavaFX Application Thread] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-18 15:38:47 [JavaFX Application Thread] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-18 15:38:47 [JavaFX Application Thread] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-01-18 15:41:32 [main] INFO  s.application.service.StatusService - Initialer Status für Feedback-ID '12345' gesetzt: Feedback erhalten
+2025-01-18 15:41:32 [main] INFO  s.domain.events.StatusEmpfangenEvent - Status für Feedback-ID '12345' wurde empfangen: Feedback erhalten
+2025-01-18 15:41:32 [main] INFO  f.a.service.FeedbackService - findeFeedback wird ausgeführt
+2025-01-18 15:41:32 [main] INFO  f.a.service.FeedbackService - Feedback: Feedback von Lisa-Marie Heufer-Umlauf(lisa-marie.heufer-umlauf@gmail.com): Dies ist das Feedback von Lisa-Marie.
+2025-01-18 15:41:32 [main] INFO  f.a.service.FeedbackService - Feedback von: Lisa-Marie Heufer-Umlauf lisa-marie.heufer-umlauf@gmail.com Dies ist das Feedback von Lisa-Marie.
+2025-01-18 15:42:32 [JavaFX-Launcher] INFO  o.s.boot.SpringApplication - Starting application using Java 23.0.1 with PID 16772 (started by Jan Laaser in C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09)
+2025-01-18 15:42:32 [JavaFX-Launcher] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-18 15:42:32 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\application\service\FeedbackService.class]
+2025-01-18 15:42:32 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\domain\events\FeedbackEventListener.class]
+2025-01-18 15:42:32 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\infrastructure\FeedbackController.class]
+2025-01-18 15:42:32 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Ignored because not a concrete top-level class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\infrastructure\repository\FeedbackRepository.class]
+2025-01-18 15:42:32 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\infrastructure\repository\MockFeedbackRepository.class]
+2025-01-18 15:42:32 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\infrastructure\SharedController.class]
+2025-01-18 15:42:32 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\ui\controller\FeedbackFormController.class]
+2025-01-18 15:42:32 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\ui\controller\SharedUIController.class]
+2025-01-18 15:42:32 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\ui\controller\StartPageController.class]
+2025-01-18 15:42:32 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\application\service\StatusService.class]
+2025-01-18 15:42:32 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\domain\events\StatusEventListener.class]
+2025-01-18 15:42:32 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\infrastructure\repository\MockStatusRepository.class]
+2025-01-18 15:42:32 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Ignored because not a concrete top-level class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\infrastructure\repository\StatusRepository.class]
+2025-01-18 15:42:32 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\infrastructure\StatusController.class]
+2025-01-18 15:42:32 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\ui\controller\StatusPageController.class]
+2025-01-18 15:42:33 [JavaFX-Launcher] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-18 15:42:33 [JavaFX-Launcher] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36 ms. Found 0 JPA repository interfaces.
+2025-01-18 15:42:34 [JavaFX-Launcher] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-01-18 15:42:34 [JavaFX-Launcher] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-18 15:42:34 [JavaFX-Launcher] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-18 15:42:34 [JavaFX-Launcher] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-01-18 15:42:34 [JavaFX-Launcher] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-01-18 15:42:34 [JavaFX-Launcher] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2445 ms
+2025-01-18 15:42:35 [JavaFX-Launcher] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-18 15:42:35 [JavaFX-Launcher] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-01-18 15:42:35 [JavaFX-Launcher] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-01-18 15:42:36 [JavaFX-Launcher] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-18 15:42:36 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-18 15:42:36 [JavaFX-Launcher] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-01-18 15:42:36 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-18 15:42:36 [JavaFX-Launcher] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-18 15:42:37 [JavaFX-Launcher] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-18 15:42:37 [JavaFX-Launcher] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-18 15:42:37 [JavaFX-Launcher] INFO  s.ui.controller.StatusPageController - StatusPageController wird von Spring erstellt.
+2025-01-18 15:42:37 [JavaFX-Launcher] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-18 15:42:37 [JavaFX-Launcher] DEBUG o.s.c.e.EventListenerMethodProcessor - 1 @EventListener methods processed on bean 'feedbackEventListener': {public void feedback.domain.events.FeedbackEventListener.handleFeedbackAngelegtEvent(feedback.domain.events.FeedbackAngelegtEvent)=@org.springframework.context.event.EventListener(classes={}, condition="", id="", value={})}
+2025-01-18 15:42:37 [JavaFX-Launcher] DEBUG o.s.c.e.EventListenerMethodProcessor - 3 @EventListener methods processed on bean 'statusEventListener': {public void status.domain.events.StatusEventListener.handleStatusAngepasstEvent(status.domain.events.StatusAngepasstEvent)=@org.springframework.context.event.EventListener(classes={}, condition="", id="", value={}), public void status.domain.events.StatusEventListener.handleStatusEmpfangenEvent(status.domain.events.StatusEmpfangenEvent)=@org.springframework.context.event.EventListener(classes={}, condition="", id="", value={}), public void status.domain.events.StatusEventListener.handleStatusAbgefragtEvent(status.domain.events.StatusAbgefragtEvent)=@org.springframework.context.event.EventListener(classes={}, condition="", id="", value={})}
+2025-01-18 15:42:37 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase -2147483647
+2025-01-18 15:42:37 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Successfully started bean 'springBootLoggingLifecycle'
+2025-01-18 15:42:37 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 2147481599
+2025-01-18 15:42:37 [JavaFX-Launcher] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-18 15:42:37 [JavaFX-Launcher] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-01-18 15:42:37 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Successfully started bean 'webServerStartStop'
+2025-01-18 15:42:37 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 2147482623
+2025-01-18 15:42:37 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Successfully started bean 'webServerGracefulShutdown'
+2025-01-18 15:42:37 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 2147483647
+2025-01-18 15:42:37 [JavaFX-Launcher] INFO  o.s.boot.SpringApplication - Started application in 6.445 seconds (process running for 8.598)
+2025-01-18 15:42:43 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147483647
+2025-01-18 15:42:43 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Bean 'applicationTaskExecutor' completed its stop procedure
+2025-01-18 15:42:43 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147482623
+2025-01-18 15:42:43 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Bean 'webServerGracefulShutdown' completed its stop procedure
+2025-01-18 15:42:43 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147481599
+2025-01-18 15:42:43 [JavaFX Application Thread] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-01-18 15:42:43 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Bean 'webServerStartStop' completed its stop procedure
+2025-01-18 15:42:43 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase -2147483647
+2025-01-18 15:42:43 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Bean 'springBootLoggingLifecycle' completed its stop procedure
+2025-01-18 15:42:43 [JavaFX Application Thread] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-18 15:42:43 [JavaFX Application Thread] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-18 15:42:43 [JavaFX Application Thread] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-01-18 17:13:35 [main] INFO  f.a.service.FeedbackService - Status: IN_PROGRESS, Anzahl: 2
+2025-01-18 17:13:35 [main] INFO  f.a.service.FeedbackService - Status: COMPLETED, Anzahl: 2
+2025-01-18 17:13:35 [main] INFO  f.a.service.FeedbackService - Status: RECEIVED, Anzahl: 2
+2025-01-18 17:15:35 [main] INFO  f.a.service.FeedbackService - Status: RECEIVED, Anzahl: 1
+2025-01-18 17:15:35 [main] INFO  f.a.service.FeedbackService - Status: IN_PROGRESS, Anzahl: 3
+2025-01-18 17:15:35 [main] INFO  f.a.service.FeedbackService - Status: COMPLETED, Anzahl: 2
+2025-01-18 17:16:48 [main] INFO  f.a.service.FeedbackService - Status: IN_PROGRESS, Anzahl: 3
+2025-01-18 17:16:48 [main] INFO  f.a.service.FeedbackService - Status: COMPLETED, Anzahl: 2
+2025-01-18 17:16:48 [main] INFO  f.a.service.FeedbackService - Status: RECEIVED, Anzahl: 1
+2025-01-18 17:16:48 [main] INFO  f.a.service.FeedbackGroupingTest - Statistik der Feedback-Status:
+2025-01-18 17:16:48 [main] INFO  f.a.service.FeedbackGroupingTest - IN_PROGRESS: 3
+2025-01-18 17:16:48 [main] INFO  f.a.service.FeedbackGroupingTest - COMPLETED: 2
+2025-01-18 17:16:48 [main] INFO  f.a.service.FeedbackGroupingTest - RECEIVED: 1
+2025-01-18 17:30:53 [main] INFO  f.a.service.FeedbackService - Anzahl der abgerufenen Feedbacks: 6
+2025-01-18 17:30:53 [main] INFO  f.a.service.FeedbackGroupingTest - Sortierte E-Mail-Adressen: [apple@test.com, banana@test.com, cherry@test.com, zebra@test.com]
+2025-01-18 17:39:50 [main] INFO  f.a.service.FeedbackService - Anzahl der abgerufenen Feedbacks: 6
+2025-01-18 17:39:50 [main] INFO  f.a.service.FeedbackGroupingTest - E-Mail-Adressen der Nutzer:
+2025-01-18 17:39:50 [main] INFO  f.a.service.FeedbackGroupingTest - apple@test.com
+2025-01-18 17:39:50 [main] INFO  f.a.service.FeedbackGroupingTest - banana@test.com
+2025-01-18 17:39:50 [main] INFO  f.a.service.FeedbackGroupingTest - cherry@test.com
+2025-01-18 17:39:50 [main] INFO  f.a.service.FeedbackGroupingTest - zebra@test.com
+2025-01-18 17:43:56 [main] INFO  f.a.service.FeedbackService - Anzahl der abgerufenen Feedbacks: 6
+2025-01-18 17:43:56 [main] INFO  f.a.service.FeedbackGroupingTest - E-Mail-Adressen der Nutzer:
+2025-01-18 17:43:56 [main] INFO  f.a.service.FeedbackGroupingTest - apple@test.com
+2025-01-18 17:43:56 [main] INFO  f.a.service.FeedbackGroupingTest - banana@test.com
+2025-01-18 17:43:56 [main] INFO  f.a.service.FeedbackGroupingTest - cherry@test.com
+2025-01-18 17:43:56 [main] INFO  f.a.service.FeedbackGroupingTest - zebra@test.com
+2025-01-18 17:43:56 [main] INFO  f.a.service.FeedbackService - Status: COMPLETED, Anzahl: 2
+2025-01-18 17:43:56 [main] INFO  f.a.service.FeedbackService - Status: RECEIVED, Anzahl: 1
+2025-01-18 17:43:56 [main] INFO  f.a.service.FeedbackService - Status: IN_PROGRESS, Anzahl: 3
+2025-01-18 17:43:56 [main] INFO  f.a.service.FeedbackGroupingTest - Statistik der Feedback-Status:
+2025-01-18 17:43:56 [main] INFO  f.a.service.FeedbackGroupingTest - COMPLETED: 2
+2025-01-18 17:43:56 [main] INFO  f.a.service.FeedbackGroupingTest - RECEIVED: 1
+2025-01-18 17:43:56 [main] INFO  f.a.service.FeedbackGroupingTest - IN_PROGRESS: 3
+2025-01-18 17:49:12 [JavaFX-Launcher] INFO  o.s.boot.SpringApplication - Starting application using Java 23.0.1 with PID 21500 (started by Jan Laaser in C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09)
+2025-01-18 17:49:12 [JavaFX-Launcher] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-18 17:49:12 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\application\service\FeedbackService.class]
+2025-01-18 17:49:12 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\domain\events\FeedbackEventListener.class]
+2025-01-18 17:49:12 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\infrastructure\FeedbackController.class]
+2025-01-18 17:49:12 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Ignored because not a concrete top-level class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\infrastructure\repository\FeedbackRepository.class]
+2025-01-18 17:49:12 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\infrastructure\repository\MockFeedbackRepository.class]
+2025-01-18 17:49:12 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\infrastructure\SharedController.class]
+2025-01-18 17:49:12 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\ui\controller\FeedbackFormController.class]
+2025-01-18 17:49:12 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\ui\controller\SharedUIController.class]
+2025-01-18 17:49:12 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\feedback\ui\controller\StartPageController.class]
+2025-01-18 17:49:12 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\application\service\StatusService.class]
+2025-01-18 17:49:12 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\domain\events\StatusEventListener.class]
+2025-01-18 17:49:12 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\infrastructure\repository\MockStatusRepository.class]
+2025-01-18 17:49:12 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Ignored because not a concrete top-level class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\infrastructure\repository\StatusRepository.class]
+2025-01-18 17:49:12 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\infrastructure\StatusController.class]
+2025-01-18 17:49:13 [JavaFX-Launcher] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - Identified candidate component class: file [C:\Users\Jan Laaser\IdeaProjects\swe-gruppe09\target\classes\status\ui\controller\StatusPageController.class]
+2025-01-18 17:49:14 [JavaFX-Launcher] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-18 17:49:14 [JavaFX-Launcher] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 42 ms. Found 0 JPA repository interfaces.
+2025-01-18 17:49:14 [JavaFX-Launcher] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-01-18 17:49:14 [JavaFX-Launcher] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-18 17:49:14 [JavaFX-Launcher] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-18 17:49:14 [JavaFX-Launcher] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-01-18 17:49:14 [JavaFX-Launcher] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-01-18 17:49:14 [JavaFX-Launcher] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2295 ms
+2025-01-18 17:49:15 [JavaFX-Launcher] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-18 17:49:15 [JavaFX-Launcher] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-01-18 17:49:15 [JavaFX-Launcher] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-01-18 17:49:16 [JavaFX-Launcher] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-18 17:49:16 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-18 17:49:16 [JavaFX-Launcher] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-01-18 17:49:16 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-18 17:49:16 [JavaFX-Launcher] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-18 17:49:17 [JavaFX-Launcher] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-18 17:49:17 [JavaFX-Launcher] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-18 17:49:17 [JavaFX-Launcher] INFO  s.ui.controller.StatusPageController - StatusPageController wird von Spring erstellt.
+2025-01-18 17:49:17 [JavaFX-Launcher] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-18 17:49:17 [JavaFX-Launcher] DEBUG o.s.c.e.EventListenerMethodProcessor - 1 @EventListener methods processed on bean 'feedbackEventListener': {public void feedback.domain.events.FeedbackEventListener.handleFeedbackAngelegtEvent(feedback.domain.events.FeedbackAngelegtEvent)=@org.springframework.context.event.EventListener(classes={}, condition="", id="", value={})}
+2025-01-18 17:49:17 [JavaFX-Launcher] DEBUG o.s.c.e.EventListenerMethodProcessor - 3 @EventListener methods processed on bean 'statusEventListener': {public void status.domain.events.StatusEventListener.handleStatusAbgefragtEvent(status.domain.events.StatusAbgefragtEvent)=@org.springframework.context.event.EventListener(classes={}, condition="", id="", value={}), public void status.domain.events.StatusEventListener.handleStatusEmpfangenEvent(status.domain.events.StatusEmpfangenEvent)=@org.springframework.context.event.EventListener(classes={}, condition="", id="", value={}), public void status.domain.events.StatusEventListener.handleStatusAngepasstEvent(status.domain.events.StatusAngepasstEvent)=@org.springframework.context.event.EventListener(classes={}, condition="", id="", value={})}
+2025-01-18 17:49:17 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase -2147483647
+2025-01-18 17:49:17 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Successfully started bean 'springBootLoggingLifecycle'
+2025-01-18 17:49:17 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 2147481599
+2025-01-18 17:49:17 [JavaFX-Launcher] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-18 17:49:17 [JavaFX-Launcher] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-01-18 17:49:17 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Successfully started bean 'webServerStartStop'
+2025-01-18 17:49:17 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 2147482623
+2025-01-18 17:49:17 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Successfully started bean 'webServerGracefulShutdown'
+2025-01-18 17:49:17 [JavaFX-Launcher] DEBUG o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 2147483647
+2025-01-18 17:49:17 [JavaFX-Launcher] INFO  o.s.boot.SpringApplication - Started application in 6.185 seconds (process running for 8.663)
+2025-01-18 17:49:23 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147483647
+2025-01-18 17:49:23 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Bean 'applicationTaskExecutor' completed its stop procedure
+2025-01-18 17:49:23 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147482623
+2025-01-18 17:49:23 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Bean 'webServerGracefulShutdown' completed its stop procedure
+2025-01-18 17:49:23 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147481599
+2025-01-18 17:49:23 [JavaFX Application Thread] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-01-18 17:49:23 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Bean 'webServerStartStop' completed its stop procedure
+2025-01-18 17:49:23 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase -2147483647
+2025-01-18 17:49:23 [JavaFX Application Thread] DEBUG o.s.c.s.DefaultLifecycleProcessor - Bean 'springBootLoggingLifecycle' completed its stop procedure
+2025-01-18 17:49:23 [JavaFX Application Thread] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-18 17:49:23 [JavaFX Application Thread] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-18 17:49:23 [JavaFX Application Thread] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
