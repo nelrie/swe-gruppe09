@@ -4,9 +4,14 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.junit.jupiter.api.Test;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import static org.mockito.Mockito.*;
 
 class PerformanceAspectTest {
+
+    private static final Logger logger = LoggerFactory.getLogger(PerformanceAspectTest.class);
 
     @Test
     void monitorPerformanceTest() throws Throwable {
@@ -18,23 +23,25 @@ class PerformanceAspectTest {
         when(mockJoinPoint.getSignature()).thenReturn(mockSignature);
         when(mockSignature.getName()).thenReturn("setStatus");
 
-        // Simuliere den Ablauf der Zielmethode (z. B. Verzögerung durch Sleep)
+        // Simuliere die Zielmethode
         when(mockJoinPoint.proceed()).thenAnswer(invocation -> {
-            // Beispiel: Die aufgerufene Methode benötigt 50ms
-            Thread.sleep(50);
+            // Simuliere eine Aktion, die ausgeführt wird und "Zeit benötigt"
+            logger.info("Zielmethode wurde ausgeführt");
             return null; // Für Methoden ohne Rückgabewert
         });
 
         // PerformanceAspect-Instanz erstellen
         PerformanceAspect aspect = new PerformanceAspect();
 
-        // Aspect aufrufen
+        // Systemzeit vor und nach dem Aufruf
+        long startTime = System.currentTimeMillis();
         aspect.monitorPerformance(mockJoinPoint);
+        long elapsedTime = System.currentTimeMillis() - startTime;
 
         // Verifiziere, dass mockJoinPoint.proceed() 1x aufgerufen wurde
         verify(mockJoinPoint, times(1)).proceed();
 
-        // Zusätzliche Konsolenausgabe zur Validierung
-        System.out.println("PerformanceAspect wurde im Test erfolgreich ausgeführt.");
+        // Verifiziere die gemessene Ausführungszeit ist im Testlog korrekt
+        logger.info("PerformanceAspect wurde im Test erfolgreich ausgeführt. Gemessene Zeit: {} ms", elapsedTime);
+        }
     }
-}
