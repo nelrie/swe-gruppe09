@@ -173,7 +173,23 @@ public void setUp() {
         assertTrue(feedbackList.contains(feedback2));
     }
 
+
+    @Test
+    public void testGetAllEmails() {
+        Feedback feedback1 = new Feedback("1", new FullName("John", "Doe"), new Email("john.doe@example.com"), new Message("Message 1"));
+        Feedback feedback2 = new Feedback("2", new FullName("Jane", "Doe"), new Email("jane.doe@example.com"), new Message("Message 2"));
+        when(feedbackRepository.findAll()).thenReturn(List.of(feedback1, feedback2));
+
+        List<String> emails = feedbackService.getAllEmails();
+
+        assertNotNull(emails);
+        assertEquals(2, emails.size());
+        assertTrue(emails.contains("john.doe@example.com"));
+        assertTrue(emails.contains("jane.doe@example.com"));
+    }
 }
+
+
 
 
 

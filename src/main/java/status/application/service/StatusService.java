@@ -11,7 +11,7 @@ import status.domain.events.StatusEmpfangenEvent;
 import status.domain.model.Status;
 import status.infrastructure.repository.StatusRepository;
 
-@Service("applicationStatusService")
+@Service
 public class StatusService {
 
     private static final Logger logger = LoggerFactory.getLogger(StatusService.class);
