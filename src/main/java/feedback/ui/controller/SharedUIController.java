@@ -59,6 +59,7 @@ public class SharedUIController {
     }
 
     // Styling der Button, wenn selektiert
+
     private void setSelectedButton(ToggleButton selectedButton) {
         System.out.println("Selected button: " + selectedButton.getText());
         startButton.setSelected(false);

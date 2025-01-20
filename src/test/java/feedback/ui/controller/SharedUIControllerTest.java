@@ -57,7 +57,7 @@ public class SharedUIControllerTest extends JavaFXTestBase{
 
     @Test
     void testOpenStartPage(){
-        PlatformImpl.runAndWait(() -> {
+        Platform.runLater(() -> {
                 ActionEvent event = mock(ActionEvent.class);
                 Node source = mock(Node.class);
                 Scene scene = mock(Scene.class);
@@ -78,7 +78,7 @@ public class SharedUIControllerTest extends JavaFXTestBase{
 
     @Test
     void testOpenFeedbackForm() {
-        PlatformImpl.runAndWait(() -> {
+        Platform.runLater(() -> {
                 ActionEvent event = mock(ActionEvent.class);
                 Node source = mock(Node.class);
                 Scene scene = mock(Scene.class);
@@ -98,7 +98,7 @@ public class SharedUIControllerTest extends JavaFXTestBase{
 
     @Test
     void testOpenStatusPage() {
-        PlatformImpl.runAndWait(() -> {
+        Platform.runLater(() -> {
                 ActionEvent event = mock(ActionEvent.class);
                 Node source = mock(Node.class);
                 Scene scene = mock(Scene.class);
@@ -118,7 +118,7 @@ public class SharedUIControllerTest extends JavaFXTestBase{
 
     @Test
     void testLoadPage_Success() {
-        PlatformImpl.runAndWait(() -> {
+        Platform.runLater(() -> {
                 ActionEvent event = mock(ActionEvent.class);
                 Node source = mock(Node.class);
                 Scene scene = mock(Scene.class);
@@ -138,7 +138,7 @@ public class SharedUIControllerTest extends JavaFXTestBase{
 
     @Test
     void testLoadPage_InvalidEventSource(){
-        PlatformImpl.runAndWait(() -> {
+        Platform.runLater(() -> {
                 ActionEvent event = mock(ActionEvent.class);
                 when(event.getSource()).thenReturn(new Object()); // Ungültige Quelle
 
@@ -153,7 +153,7 @@ public class SharedUIControllerTest extends JavaFXTestBase{
 
     @Test
     void testLoadPage_IOException(){
-        PlatformImpl.runAndWait(() -> {
+        Platform.runLater(() -> {
                 ActionEvent event = mock(ActionEvent.class);
                 Node source = mock(Node.class);
                 Scene scene = mock(Scene.class);
@@ -176,7 +176,7 @@ public class SharedUIControllerTest extends JavaFXTestBase{
 
     @Test
     void testLoadPage_InvalidFXML(){
-        PlatformImpl.runAndWait(() -> {
+        Platform.runLater(() -> {
                 ActionEvent event = mock(ActionEvent.class);
                 Node source = mock(Node.class);
                 Scene scene = mock(Scene.class);

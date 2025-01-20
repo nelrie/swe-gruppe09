@@ -27,6 +27,7 @@ public class StatusPageController {
     @FXML
     private TextField feedbackIDField;
 
+    @Autowired
     private final StatusService statusService;
 
     @Autowired
