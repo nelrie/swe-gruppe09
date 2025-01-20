@@ -26,6 +26,10 @@ public class Email {
         return Objects.equals(emailInput, email.emailInput);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(emailInput);
+    }
 
     @Override
     public String toString() {
