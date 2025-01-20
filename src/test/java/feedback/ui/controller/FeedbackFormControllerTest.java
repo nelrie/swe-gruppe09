@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
-class FeedbackFormControllerTest {
+class FeedbackFormControllerTest extends JavaFXTestBase {
 
     @InjectMocks
     private FeedbackFormController feedbackFormController; // Automatische Injektion der gemockten Beans
@@ -39,27 +39,19 @@ class FeedbackFormControllerTest {
     private TextField emailField;
     private TextArea messageArea;
 
-    @BeforeAll
-    static void initializeJavaFX() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
-        Platform.startup(() -> latch.countDown());
-        if (!latch.await(10, TimeUnit.SECONDS)) {
-            throw new IllegalStateException("JavaFX Application Thread konnte nicht gestartet werden.");
-        }
-    }
 
     @BeforeEach
     void setUp() {
         // Initialisierung der Mockito-Mocks
         MockitoAnnotations.openMocks(this);
 
-        // Erstelle echte Instanzen für alle JavaFX-Komponenten
+        // Erstellt echte Instanzen für alle JavaFX-Komponenten
         firstNameField = new TextField();
         lastNameField = new TextField();
         emailField = new TextField();
         messageArea = new TextArea();
 
-        // Setze die Textfelder im Controller (Setter oder Konstruktor-Injektion je nach Design)
+        // Setzt die Textfelder im Controller
         feedbackFormController.setFirstNameField(firstNameField);
         feedbackFormController.setLastNameField(lastNameField);
         feedbackFormController.setEmailField(emailField);
