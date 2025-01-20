@@ -2,6 +2,8 @@ package feedback.domain.valueobjects;
 
 import feedback.exceptions.validation.InputValidator;
 
+import java.util.Objects;
+
 public class Message {
     private final String messageInput;
 
@@ -24,6 +26,10 @@ public class Message {
         return messageInput.equals(message.messageInput);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(messageInput);
+    }
 
     @Override
     public String toString() {

@@ -2,19 +2,29 @@ package feedback.domain.valueobjects;
 
 import feedback.exceptions.validation.InputValidator;
 
-import java.util.Objects;
-
 public class FullName {
+
     private final String firstName;
     private final String lastName;
 
     public FullName(String firstName, String lastName) {
+        // Null-Prüfung auf Vorname und Nachname
+        if (firstName == null || firstName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Ungültiger Vorname: darf nicht null oder leer sein");
+        }
+        if (lastName == null || lastName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Ungültiger Nachname: darf nicht null oder leer sein");
+        }
+
+        // Überprüfung von invaliden Zeichen mit InputValidator
         if (!InputValidator.isValidName(firstName)) {
-            throw new IllegalArgumentException("Ungültiger Vorname");
+            throw new IllegalArgumentException("Ungültiger Vorname: enthält unzulässige Zeichen");
         }
         if (!InputValidator.isValidName(lastName)) {
-            throw new IllegalArgumentException("Ungültiger Nachname");
+            throw new IllegalArgumentException("Ungültiger Nachname: enthält unzulässige Zeichen");
         }
+
+        // Initialisierung der Felder
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -27,6 +37,10 @@ public class FullName {
         return lastName;
     }
 
+    @Override
+    public String toString() {
+        return firstName + " " + lastName;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -36,9 +50,8 @@ public class FullName {
         return firstName.equals(fullName.firstName) && lastName.equals(fullName.lastName);
     }
 
-
     @Override
-    public String toString() {
-        return firstName + " " + lastName;
+    public int hashCode() {
+        return firstName.hashCode() + lastName.hashCode();
     }
 }
