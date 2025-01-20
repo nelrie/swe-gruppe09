@@ -1,27 +1,31 @@
 package feedback.ui.controller;
 
-import feedback.infrastructure.FeedbackController;
+
+import com.sun.javafx.application.PlatformImpl;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
-import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.ApplicationContext;
 
 import java.io.IOException;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+
+
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 public class SharedUIControllerTest extends JavaFXTestBase{
 
     @Mock
@@ -52,10 +56,8 @@ public class SharedUIControllerTest extends JavaFXTestBase{
     }
 
     @Test
-    void testOpenStartPage() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
-        Platform.runLater(() -> {
-            try {
+    void testOpenStartPage(){
+        PlatformImpl.runAndWait(() -> {
                 ActionEvent event = mock(ActionEvent.class);
                 Node source = mock(Node.class);
                 Scene scene = mock(Scene.class);
@@ -70,18 +72,13 @@ public class SharedUIControllerTest extends JavaFXTestBase{
                 assertTrue(startButton.isSelected());
                 assertFalse(feedbackButton.isSelected());
                 assertFalse(statusButton.isSelected());
-            } finally {
-                latch.countDown();
-            }
+
         });
-        latch.await(5, TimeUnit.SECONDS);
     }
 
     @Test
-    void testOpenFeedbackForm() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
-        Platform.runLater(() -> {
-            try {
+    void testOpenFeedbackForm() {
+        PlatformImpl.runAndWait(() -> {
                 ActionEvent event = mock(ActionEvent.class);
                 Node source = mock(Node.class);
                 Scene scene = mock(Scene.class);
@@ -96,18 +93,12 @@ public class SharedUIControllerTest extends JavaFXTestBase{
                 assertFalse(startButton.isSelected());
                 assertTrue(feedbackButton.isSelected());
                 assertFalse(statusButton.isSelected());
-            } finally {
-                latch.countDown();
-            }
-        });
-        latch.await(5, TimeUnit.SECONDS);
+      });
     }
 
     @Test
-    void testOpenStatusPage() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
-        Platform.runLater(() -> {
-            try {
+    void testOpenStatusPage() {
+        PlatformImpl.runAndWait(() -> {
                 ActionEvent event = mock(ActionEvent.class);
                 Node source = mock(Node.class);
                 Scene scene = mock(Scene.class);
@@ -122,18 +113,12 @@ public class SharedUIControllerTest extends JavaFXTestBase{
                 assertFalse(startButton.isSelected());
                 assertFalse(feedbackButton.isSelected());
                 assertTrue(statusButton.isSelected());
-            } finally {
-                latch.countDown();
-            }
-        });
-        latch.await(5, TimeUnit.SECONDS);
-    }
+         });
+        }
 
     @Test
-    void testLoadPage_Success() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
-        Platform.runLater(() -> {
-            try {
+    void testLoadPage_Success() {
+        PlatformImpl.runAndWait(() -> {
                 ActionEvent event = mock(ActionEvent.class);
                 Node source = mock(Node.class);
                 Scene scene = mock(Scene.class);
@@ -148,18 +133,12 @@ public class SharedUIControllerTest extends JavaFXTestBase{
                 // Überprüfe, ob die Szene korrekt gesetzt wurde
                 assertEquals("Valid Page", stage.getTitle());
                 assertNotNull(stage.getScene());
-            } finally {
-                latch.countDown();
-            }
         });
-        latch.await(5, TimeUnit.SECONDS);
     }
 
     @Test
-    void testLoadPage_InvalidEventSource() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
-        Platform.runLater(() -> {
-            try {
+    void testLoadPage_InvalidEventSource(){
+        PlatformImpl.runAndWait(() -> {
                 ActionEvent event = mock(ActionEvent.class);
                 when(event.getSource()).thenReturn(new Object()); // Ungültige Quelle
 
@@ -169,18 +148,12 @@ public class SharedUIControllerTest extends JavaFXTestBase{
                 if (verify(SharedUIController.getLogger(), times(1)).isErrorEnabled()) {
                     verify(SharedUIController.getLogger(), times(1)).error(anyString(), anyString(), any(IllegalStateException.class));
                 }
-            } finally {
-                latch.countDown();
-            }
         });
-        latch.await(5, TimeUnit.SECONDS);
     }
 
     @Test
-    void testLoadPage_IOException() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
-        Platform.runLater(() -> {
-            try {
+    void testLoadPage_IOException(){
+        PlatformImpl.runAndWait(() -> {
                 ActionEvent event = mock(ActionEvent.class);
                 Node source = mock(Node.class);
                 Scene scene = mock(Scene.class);
@@ -197,19 +170,13 @@ public class SharedUIControllerTest extends JavaFXTestBase{
 
                 // Überprüfe, ob der Logger den Fehler protokolliert hat
                 verify(SharedUIController.getLogger(), times(1)).error(anyString(), anyString(), any(IOException.class));
-
-            } finally {
-                latch.countDown();
-            }
         });
-        latch.await(5, TimeUnit.SECONDS);
+
     }
 
     @Test
-    void testLoadPage_InvalidFXML() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
-        Platform.runLater(() -> {
-            try {
+    void testLoadPage_InvalidFXML(){
+        PlatformImpl.runAndWait(() -> {
                 ActionEvent event = mock(ActionEvent.class);
                 Node source = mock(Node.class);
                 Scene scene = mock(Scene.class);
@@ -225,11 +192,7 @@ public class SharedUIControllerTest extends JavaFXTestBase{
                 if (verify(SharedUIController.getLogger(), times(1)).isErrorEnabled()) {
                     verify(SharedUIController.getLogger(), times(1)).error(anyString(), anyString(), any(IOException.class));
                 }
-            } finally {
-                latch.countDown();
-            }
         });
-        latch.await(5, TimeUnit.SECONDS);
     }
 }
 

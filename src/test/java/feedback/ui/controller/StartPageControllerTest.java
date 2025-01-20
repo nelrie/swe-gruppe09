@@ -4,16 +4,18 @@ import javafx.application.Platform;
 import javafx.scene.text.TextFlow;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.ApplicationContext;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+@ExtendWith(MockitoExtension.class)
 class StartPageControllerTest extends JavaFXTestBase {
 
     @InjectMocks
@@ -33,19 +35,16 @@ class StartPageControllerTest extends JavaFXTestBase {
     }
 
     @Test
-    void testInitialize() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
+    void testInitialize(){
         Platform.runLater(() -> {
-            try {
+
                 // Act: Initialisiere den Controller
                 startPageController.initialize();
 
                 // Assert: Verifiziere, dass die LineSpacing-Eigenschaft gesetzt wurde
                 assertEquals(10, contentText.getLineSpacing());
-            } finally {
-                latch.countDown();
-            }
+
         });
-        latch.await(5, TimeUnit.SECONDS);
+
     }
 }

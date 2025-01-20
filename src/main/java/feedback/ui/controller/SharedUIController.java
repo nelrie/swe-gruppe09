@@ -16,7 +16,7 @@ import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 
-@Controller("sharedUIController")
+@Controller
 public class SharedUIController {
 
     // Logger um Fehler zu protokollieren anstelle von e.printStackTrace()

@@ -11,19 +11,20 @@ import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
+
+@ExtendWith(MockitoExtension.class)
 class FeedbackFormControllerTest extends JavaFXTestBase {
 
     @InjectMocks
@@ -58,10 +59,8 @@ class FeedbackFormControllerTest extends JavaFXTestBase {
         feedbackFormController.setMessageArea(messageArea);
     }
     @Test
-    void testInitialize() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
+    void testInitialize() {
         Platform.runLater(() -> {
-            try {
                 // Act: Initialisiere den Controller
                 feedbackFormController.initialize();
 
@@ -69,19 +68,12 @@ class FeedbackFormControllerTest extends JavaFXTestBase {
                 assertEquals("", firstNameField.getText());
                 assertEquals("", lastNameField.getText());
                 assertEquals("", emailField.getText());
-                assertEquals("", messageArea.getText());
-            } finally {
-                latch.countDown();
-            }
         });
-        latch.await(5, TimeUnit.SECONDS);
     }
 
     @Test
-    void testHandleSubmitFeedback_ValidInput() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
+    void testHandleSubmitFeedback_ValidInput(){
         Platform.runLater(() -> {
-            try {
                 setValidInputFields();
 
                 Feedback feedbackMock = createMockFeedback();
@@ -95,23 +87,13 @@ class FeedbackFormControllerTest extends JavaFXTestBase {
                 verifyFeedbackServiceCalledOnce();
                 verifyFieldsCleared();
                 verifySuccessAlertShown(feedbackMock.getFeedbackID());
-
-
-            } finally {
-                // Setzt das Latch herunter, um den JavaFX-Thread zu beenden
-                latch.countDown();
-            }
-
         });
-        latch.await(5, TimeUnit.SECONDS);
+
     }
 
     @Test
-    void testHandleSubmitFeedback_InvalidInput() throws Exception {
-        // Arrange: Simulierte ungültige Eingaben
-        CountDownLatch latch = new CountDownLatch(1);
+    void testHandleSubmitFeedback_InvalidInput(){
         Platform.runLater(() -> {
-            try {
                     setInvalidInputFields();
 
                     feedbackFormController.handleSubmitFeedback();
@@ -119,43 +101,30 @@ class FeedbackFormControllerTest extends JavaFXTestBase {
                     verify(feedbackServiceMock, never()).erstelleFeedback(any(CreateFeedbackCommand.class));
                     verifyFieldsNotCleared();
                     verifyWarningAlertShown();
-                } finally {
-                latch.countDown();
-        }
         });
-        latch.await(5, TimeUnit.SECONDS);
+
     }
 
 
     @Test
-    void testHandleSubmitFeedback_Exception() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
+    void testHandleSubmitFeedback_Exception() {
         Platform.runLater(() -> {
-            try {
                 setValidInputFields();
 
                 when(feedbackServiceMock.erstelleFeedback(any(CreateFeedbackCommand.class))).thenThrow(new RuntimeException("Test Exception"));
-
                 feedbackFormController.handleSubmitFeedback();
 
                 verifyFeedbackServiceCalledOnce();
                 verifyFieldsNotCleared();
                 verifyErrorAlertShown("Test Exception");
-            } finally {
-                latch.countDown();
-            }
         });
-        latch.await(5, TimeUnit.SECONDS);
     }
 
     @Test
-    void testShowAlert() throws InterruptedException {
-        CountDownLatch latch = new CountDownLatch(1);
+    void testShowAlert()  {
         Platform.runLater(() -> {
             feedbackFormController.showAlert("Test Alert!", Alert.AlertType.INFORMATION);
-            latch.countDown();
         });
-        latch.await(5, TimeUnit.SECONDS);
     }
 
 

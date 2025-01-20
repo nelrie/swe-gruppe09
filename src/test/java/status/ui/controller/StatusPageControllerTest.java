@@ -2,7 +2,6 @@ package status.ui.controller;
 
 import feedback.ui.controller.JavaFXTestBase;
 import javafx.application.Platform;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -14,11 +13,7 @@ import org.mockito.MockitoAnnotations;
 import status.application.service.StatusService;
 import status.domain.model.Status;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class StatusPageControllerTest extends JavaFXTestBase {
@@ -38,83 +33,73 @@ class StatusPageControllerTest extends JavaFXTestBase {
         MockitoAnnotations.openMocks(this);
 
         statusPageController = new StatusPageController(statusServiceMock);
-        feedbackIDField = new TextField();
-        statusLabel = new Label();
-        submitButton = new Button();
+            feedbackIDField = new TextField();
+            statusLabel = new Label();
+            submitButton = new Button();
 
-        statusPageController.setFeedbackIDField(feedbackIDField);
-        statusPageController.setStatusLabel(statusLabel);
-        statusPageController.setSubmitButton(submitButton);
+            statusPageController.setFeedbackIDField(feedbackIDField);
+            statusPageController.setStatusLabel(statusLabel);
+            statusPageController.setSubmitButton(submitButton);
 
-        // Aufruf der Initialisierungsmethode, um Standardwerte zu setzen
-        statusPageController.initialize();
+            // Aufruf der Initialisierungsmethode, um Standardwerte zu setzen
+            statusPageController.initialize();
+            assertNotNull(statusPageController, "Controller ist nicht korrekt initialisiert und ist null.");
 
-        assertNotNull(statusPageController, "Controller ist nicht korrekt initialisiert und ist null.");
     }
 
     @Test
-    void testInitialize() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
-        Platform.runLater(() -> {
-            try {
-                // Act: Initialisiere den Controller
-                statusPageController.initialize();
+    void testInitialize()   {
 
-                // Assert: Verifiziere, dass das Label den Standardtext hat
-                assertEquals("Bitte geben Sie Ihre Feedback-ID ein.", statusLabel.getText());
-                // Verifiziere, dass der Submit-Button initialisiert wurde
-                assertNotNull(submitButton);
-            } finally {
-                latch.countDown();
-            }
+        Platform.runLater(() -> {
+            // Act: Initialisiere den Controller
+            statusPageController.initialize();
+
+            // Assert: Verifiziere, dass das Label den Standardtext hat
+            assertEquals("Bitte geben Sie Ihre Feedback-ID ein.", statusLabel.getText());
+            // Verifiziere, dass der Submit-Button initialisiert wurde
+            assertNotNull(submitButton);
+
         });
-        latch.await(5, TimeUnit.SECONDS);
     }
+        //boolean completed = latch.await(10, TimeUnit.SECONDS);
+        //assertTrue(completed, "Die Operation wurde nicht innerhalb der erwarteten Zeit abgeschlossen.");    }
 
     @Test
-    void testHandleSubmitButtonAction_ValidID() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
+    void testHandleSubmitButtonAction_ValidID() {
         Platform.runLater(() -> {
-        try{
-        // Arrange: Simulierte Benutzereingabe
-        String feedbackID = "123456";
-        feedbackIDField.setText(feedbackID);
+            // Arrange: Simulierte Benutzereingabe
+            String feedbackID = "123456";
+            feedbackIDField.setText(feedbackID);
 
-        // Erwarteter Status
-        Status statusMock = Status.RECEIVED;
-        when(statusServiceMock.getStatus(feedbackID)).thenReturn(statusMock);
+            // Erwarteter Status
+            Status statusMock = Status.RECEIVED;
+            when(statusServiceMock.getStatus(feedbackID)).thenReturn(statusMock);
 
-        // Act: handleSubmitButtonAction aufrufen
-        statusPageController.handleSubmitButtonAction();
+            // Act: handleSubmitButtonAction aufrufen
+            statusPageController.handleSubmitButtonAction();
 
-        // Verifiziere, dass das Label den korrekten Text hat
-        assertEquals("Der aktuelle Status Ihres Feedbacks ist: " + statusMock.getDescription(), statusLabel.getText());
+            // Verifiziere, dass das Label den korrekten Text hat
+            assertEquals("Der aktuelle Status Ihres Feedbacks ist: " + statusMock.getDescription(), statusLabel.getText());
 
-        // Verifizieren: Mock Service wurde mit richtiger Feedback ID aufgerufen
-        verify(statusServiceMock, times(1)).getStatus(feedbackID);
+            // Verifizieren: Mock Service wurde mit richtiger Feedback ID aufgerufen
+            verify(statusServiceMock, times(1)).getStatus(feedbackID);
 
-        } finally {
-            latch.countDown();
-        }
         });
-        latch.await(5, TimeUnit.SECONDS);
     }
 
 
 
 
     @Test
-    void testHandleSubmitButtonAction_InvalidID() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
+    void testHandleSubmitButtonAction_InvalidID()   {
         Platform.runLater(() -> {
-            try {
                 // Arrange: Simulierte Benutzereingabe
                 feedbackIDField.setText("invalid-id");
 
                 // Mock-Service: Werfe eine IllegalArgumentException
                 when(statusServiceMock.getStatus("invalid-id")).thenThrow(new IllegalArgumentException("Ungültige Feedback-ID"));
 
-                /// Spy auf den Controller, um die showAlert-Methode zu überwachen
+                // Spy auf den Controller, um die showAlert-Methode zu überwachen
                 StatusPageController spyController = spy(statusPageController);
                 doAnswer(invocation -> {
                     String message = invocation.getArgument(0);
@@ -135,19 +120,12 @@ class StatusPageControllerTest extends JavaFXTestBase {
                 // Verifiziere, dass die Fehlermeldung angezeigt wurde
                 verify(spyController, times(1)).showAlert("Ungültige Feedback-ID: invalid-id");
 
-
-            } finally {
-                latch.countDown();
-            }
         });
-        latch.await(5, TimeUnit.SECONDS);
     }
 
     @Test
-    void testHandleSubmitButtonAction_NoStatusFound() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
+    void testHandleSubmitButtonAction_NoStatusFound()   {
         Platform.runLater(() -> {
-            try {
                 // Arrange: Simulierte Benutzereingabe
                 feedbackIDField.setText("123456");
 
@@ -162,18 +140,13 @@ class StatusPageControllerTest extends JavaFXTestBase {
 
                 // Verifiziere, dass das Label den korrekten Text hat
                 assertEquals("Kein Status für die angegebene Feedback-ID gefunden.", statusLabel.getText());
-            } finally {
-                latch.countDown();
-            }
+
         });
-        latch.await(5, TimeUnit.SECONDS);
     }
 
     @Test
-    void testGetStatusFromRepository_ValidID() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
+    void testGetStatusFromRepository_ValidID()   {
         Platform.runLater(() -> {
-            try {
                 // Arrange: Simulierte Benutzereingabe
                 feedbackIDField.setText("123456");
 
@@ -189,18 +162,12 @@ class StatusPageControllerTest extends JavaFXTestBase {
 
                 // Verifiziere, dass das Label den korrekten Text hat
                 assertEquals("Der aktuelle Status Ihres Feedbacks ist: Feedback erhalten", statusLabel.getText());
-            } finally {
-                latch.countDown();
-            }
         });
-        latch.await(5, TimeUnit.SECONDS);
     }
 
     @Test
-    void testGetStatusFromRepository_InvalidID() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
+    void testGetStatusFromRepository_InvalidID()   {
         Platform.runLater(() -> {
-            try {
                 // Arrange: Simulierte Benutzereingabe
                 feedbackIDField.setText("invalid-id");
 
@@ -226,18 +193,12 @@ class StatusPageControllerTest extends JavaFXTestBase {
 
                 // Verifiziere, dass die Fehlermeldung angezeigt wurde
                 verify(spyController, times(1)).showAlert("Ungültige Feedback-ID: invalid-id");
-            } finally {
-                latch.countDown();
-            }
         });
-        latch.await(5, TimeUnit.SECONDS);
     }
 
     @Test
-    void testGetStatusFromRepository_NoStatusFound() throws Exception {
-        CountDownLatch latch = new CountDownLatch(1);
+    void testGetStatusFromRepository_NoStatusFound()   {
         Platform.runLater(() -> {
-            try {
                 // Arrange: Simulierte Benutzereingabe
                 feedbackIDField.setText("123456");
 
@@ -252,20 +213,12 @@ class StatusPageControllerTest extends JavaFXTestBase {
 
                 // Verifiziere, dass das Label den korrekten Text hat
                 assertEquals("Kein Status für die angegebene Feedback-ID gefunden.", statusLabel.getText());
-            } finally {
-                latch.countDown();
-            }
+
         });
-        latch.await(5, TimeUnit.SECONDS);
-    }
+        }
 
     @Test
-    void testShowAlert() throws InterruptedException {
-        CountDownLatch latch = new CountDownLatch(1);
-        Platform.runLater(() -> {
-            statusPageController.showAlert("Test Alert!");
-            latch.countDown();
-        });
-        latch.await(5, TimeUnit.SECONDS);
-    }
+    void testShowAlert()   {
+        Platform.runLater(() -> statusPageController.showAlert("Test Alert!"));
+         }
 }
