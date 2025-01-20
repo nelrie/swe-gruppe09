@@ -5,8 +5,6 @@ import feedback.domain.valueobjects.Email;
 import feedback.domain.valueobjects.FullName;
 import feedback.domain.valueobjects.Message;
 import feedback.exceptions.validation.InputValidator;
-import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
@@ -19,7 +17,6 @@ import feedback.domain.model.Feedback;
 
 import org.springframework.stereotype.Controller;
 
-import static org.springframework.util.ObjectUtils.isEmpty;
 
 
 //enthält die Logik für das JavaFX-Feedback-Formular
