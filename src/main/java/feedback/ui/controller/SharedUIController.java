@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
@@ -21,7 +20,7 @@ import java.io.IOException;
 public class SharedUIController {
 
     // Logger um Fehler zu protokollieren anstelle von e.printStackTrace()
-    private static final Logger logger = LoggerFactory.getLogger(SharedUIController.class);
+    private static Logger logger = LoggerFactory.getLogger(SharedUIController.class);
 
     @FXML
     private ToggleButton startButton;
@@ -60,6 +59,7 @@ public class SharedUIController {
     }
 
     // Styling der Button, wenn selektiert
+
     private void setSelectedButton(ToggleButton selectedButton) {
         System.out.println("Selected button: " + selectedButton.getText());
         startButton.setSelected(false);
@@ -68,9 +68,11 @@ public class SharedUIController {
         selectedButton.setSelected(true);
     }
 
+
+
     // Methode zum Laden der Seite
     @FXML
-    private void loadPage(ActionEvent event, String fxmlFile, String title) {
+    public void loadPage(ActionEvent event, String fxmlFile, String title) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
             fxmlLoader.setControllerFactory(context::getBean);
@@ -92,6 +94,31 @@ public class SharedUIController {
 
         }
 
+    }
+
+    // Setter fürs Testen
+    public void setContext(ApplicationContext context) {
+        this.context = context;
+    }
+
+    public void setLogger(Logger logger) {
+        SharedUIController.logger = logger;
+    }
+
+    public static Logger getLogger() {
+        return logger;
+    }
+
+    public void setStartButton(ToggleButton startButton) {
+        this.startButton = startButton;
+    }
+
+    public void setFeedbackButton(ToggleButton feedbackButton) {
+        this.feedbackButton = feedbackButton;
+    }
+
+    public void setStatusButton(ToggleButton statusButton) {
+        this.statusButton = statusButton;
     }
 
 

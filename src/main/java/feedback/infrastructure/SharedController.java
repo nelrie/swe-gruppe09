@@ -4,15 +4,17 @@ import feedback.ui.controller.SharedUIController;
 import javafx.event.ActionEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 
-@Controller
+@RestController("sharedControllerInfr")
 @RequestMapping("/")
 public class SharedController {
     private static final Logger logger = LoggerFactory.getLogger(SharedController.class);
 
+    @Autowired
+    @Qualifier("sharedUIController")
     private final SharedUIController sharedUIController;
 
     @Autowired

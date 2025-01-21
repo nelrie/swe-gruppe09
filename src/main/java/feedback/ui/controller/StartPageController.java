@@ -23,14 +23,11 @@ public class StartPageController {
     // CSS Einbindung
     @FXML
     public void initialize() {
-
-//        // CSS-Datei hinzufügen
-//        if (!root.getStylesheets().contains("/css/styles.css")) {
-//            root.getStylesheets().add(Objects.requireNonNull(getClass()
-//                    .getResource("/css/styles.css")).toExternalForm());
-//        }
-
         contentText.setLineSpacing(10);
         }
 
+
+    public void setContentText(TextFlow contentText) {
+        this.contentText = contentText;
+    }
 }

@@ -24,6 +24,7 @@ public class Feedback {
     public Feedback() {
         //No-Args-Konstruktor für JPA
     }
+
     public Feedback(String feedbackID, FullName fullName, Email email, Message message) {
         this.feedbackID = feedbackID;
         this.fullName = fullName;

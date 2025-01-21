@@ -73,6 +73,9 @@ public class StatusService {
                 }
             }
 
+
+            // Hilfsmethoden, um Code lesbar zu halten und Code-Duplikationen zu vermeiden
+
             private void validateFeedbackID(String feedbackID){
         if (feedbackID == null || feedbackID.isEmpty() || feedbackID.equals("invalid-feedback-id")){
             throw new IllegalArgumentException("Feedback-ID darf nicht null, leer oder ungültig sein");

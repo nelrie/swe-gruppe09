@@ -27,6 +27,7 @@ public class StatusPageController {
     @FXML
     private TextField feedbackIDField;
 
+    @Autowired
     private final StatusService statusService;
 
     @Autowired
@@ -41,22 +42,32 @@ public class StatusPageController {
     public void initialize() {
         logger.info("StatusPageController wurde initialisiert.");
         // Standardtext für das Label setzen
-        statusLabel.setText("Bitte geben Sie Ihre Feedback-ID ein.");
+        if (statusLabel != null) {
+            statusLabel.setText("Bitte geben Sie Ihre Feedback-ID ein.");
+        } else {
+            logger.error("Das Label für den Status ist nicht geladen.");
+        }
     }
 
     // Methode wird aufgerufen, wenn der Benutzer den Submit-Button klickt
     @FXML
-    private void handleSubmitButtonAction() {
+    public void handleSubmitButtonAction() {
         getStatusFromRepository();
     }
 
 
     @FXML
-    private void getStatusFromRepository() {
+    public void getStatusFromRepository() {
+        if (feedbackIDField == null) {
+            logger.error("feedbackIDField ist null. Fehlende FXML-Bindung.");
+            showAlert("Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.");
+            return;
+        }
         String feedbackID =feedbackIDField.getText();
         try {
 
             logger.info("Abrufen des Status für Feedback-ID: {}", feedbackID);
+
             Status status = statusService.getStatus(feedbackID);
             if (status != null) {
                 statusLabel.setText("Der aktuelle Status Ihres Feedbacks ist: " + status.getDescription());
@@ -75,25 +86,26 @@ public class StatusPageController {
         }
     }
 
-    public void testableGetStatusFromRepository() {
-        getStatusFromRepository();
-    }
-
-    public TextField getFeedbackIDField() {
-        return feedbackIDField;
-    }
-    public Label getStatusLabel() {
-        return statusLabel;
-    }
 
     @FXML
-    private void showAlert(String message) {
+    public void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Feedback Status");
         alert.setContentText(message);
         alert.showAndWait();
     }
 
+
+    public void setFeedbackIDField(TextField feedbackIDField) {
+        this.feedbackIDField = feedbackIDField;
+    }
+    public void setStatusLabel(Label statusLabel) {
+        this.statusLabel = statusLabel;
+    }
+
+    public void setSubmitButton(Button submitButton) {
+        this.submitButton = submitButton;
+    }
 }
 
 
