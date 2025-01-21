@@ -1,13 +1,12 @@
 package feedback.exceptions.validation;
 
-import feedback.exceptions.validation.InputValidator;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class InputValidatorTest {
+class InputValidatorTest {
 
     @Test
-    public void testValidFirstName() {
+    void testValidFirstName() {
         assertTrue(InputValidator.isValidName("John"));
         assertTrue(InputValidator.isValidName("John Doe"));
         assertTrue(InputValidator.isValidName("Lisa-Marie"));
@@ -27,7 +26,7 @@ public class InputValidatorTest {
         
     }
     @Test
-    public void testValidLastName() {
+    void testValidLastName() {
         assertTrue(InputValidator.isValidName("Umlauf"));
         assertTrue(InputValidator.isValidName("John Doe"));
         assertTrue(InputValidator.isValidName("Lisa-Marie"));
@@ -48,7 +47,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    public void testValidEmail() {
+    void testValidEmail() {
         assertTrue(InputValidator.isValidEmail("john.doe@example.com"));
         assertFalse(InputValidator.isValidEmail("john.doe@com"));
         assertFalse(InputValidator.isValidEmail("john.doe@.com"));

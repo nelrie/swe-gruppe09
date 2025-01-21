@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
-public class FeedbackServiceIntegrationTest {
+    class FeedbackServiceIntegrationTest {
 
     @Autowired
     private FeedbackService feedbackService;
@@ -23,7 +23,7 @@ public class FeedbackServiceIntegrationTest {
     private FeedbackRepository feedbackRepository;
 
     @Test
-    public void testErstelleFeedbackIntegration() {
+    void testErstelleFeedbackIntegration() {
         CreateFeedbackCommand command = new CreateFeedbackCommand(
                 new FullName("Lisa-Marie", "Heufer-Umlauf"),
                 new Email("lisa-marie.heufer-umlauf@gmail.com"),

@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
-public class FeedbackServiceTest {
+    class FeedbackServiceTest {
 
 @Mock
     private FeedbackRepository feedbackRepository;
@@ -77,7 +77,7 @@ public void setUp() {
 }
     //Test zum Erstellen eines Feedbacks
     @Test
-    public void testErstelleFeedback() {
+    void testErstelleFeedback() {
         // Mocken der statischen Methode IdGenerator.generateShortUuid()
         try (MockedStatic<IdGenerator> mockedIdGenerator = mockStatic(IdGenerator.class)) {
             mockedIdGenerator.when(IdGenerator::generateShortUuid).thenReturn("12345");
@@ -129,7 +129,7 @@ public void setUp() {
 
 
     @Test
-    public void testLoescheFeedback() {
+    void testLoescheFeedback() {
 
         feedback = new Feedback("12345", fullName, email, message);
         when(feedbackRepository.findById("12345")).thenReturn(feedback);
@@ -143,7 +143,7 @@ public void setUp() {
     }
 
     @Test
-    public void testFindeFeedback() {
+    void testFindeFeedback() {
 
         feedback = new Feedback("12345", fullName, email, message);
         when(feedbackRepository.findById("12345")).thenReturn(feedback);
@@ -157,7 +157,7 @@ public void setUp() {
 
     }
     @Test
-    public void testFindeAlleFeedbacks() {
+    void testFindeAlleFeedbacks() {
         Feedback feedback1 = new Feedback("12345", fullName, email, message);
         Feedback feedback2 = new Feedback("67890", new FullName("Max", "Mustermann"), new Email("max.mustermann@example.com"), new Message("Feedback von Max"));
         feedback1.setStatus(Status.RECEIVED);
@@ -175,7 +175,7 @@ public void setUp() {
 
 
     @Test
-    public void testGetAllEmails() {
+    void testGetAllEmails() {
         Feedback feedback1 = new Feedback("1", new FullName("John", "Doe"), new Email("john.doe@example.com"), new Message("Message 1"));
         Feedback feedback2 = new Feedback("2", new FullName("Jane", "Doe"), new Email("jane.doe@example.com"), new Message("Message 2"));
         when(feedbackRepository.findAll()).thenReturn(List.of(feedback1, feedback2));
