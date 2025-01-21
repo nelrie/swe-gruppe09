@@ -2,7 +2,6 @@ package feedback.application.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-
 import feedback.application.commands.CreateFeedbackCommand;
 import feedback.domain.events.FeedbackAngelegtEvent;
 import feedback.domain.valueobjects.Email;
@@ -20,7 +19,6 @@ import org.springframework.context.ApplicationEventPublisher;
 import status.application.service.StatusService;
 import status.domain.model.Status;
 import status.infrastructure.repository.StatusRepository;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -72,8 +70,6 @@ public void setUp() {
 
     // Erstellen des Commands zum Feedback Abschicken
     feedbackCommand = new CreateFeedbackCommand(fullName, email, message);
-
-
 }
     //Test zum Erstellen eines Feedbacks
     @Test
@@ -123,10 +119,7 @@ public void setUp() {
             // Überprüfen, ob die save-Methode aufgerufen wurde
             verify(feedbackRepository).save(any(Feedback.class));
         }
-
-
     }
-
 
     @Test
     void testLoescheFeedback() {
@@ -139,7 +132,6 @@ public void setUp() {
         assertTrue(geloeschtesFeedback.isPresent());
         assertEquals(feedback, geloeschtesFeedback.get());
         verify(feedbackRepository).deleteById("12345");
-//
     }
 
     @Test
@@ -154,8 +146,8 @@ public void setUp() {
         assertEquals(fullName, gefundenesFeedback.getFullName());
         assertEquals(email, gefundenesFeedback.getEmail());
         assertEquals(message, gefundenesFeedback.getMessage());
-
     }
+
     @Test
     void testFindeAlleFeedbacks() {
         Feedback feedback1 = new Feedback("12345", fullName, email, message);
@@ -172,7 +164,6 @@ public void setUp() {
         assertTrue(feedbackList.contains(feedback1));
         assertTrue(feedbackList.contains(feedback2));
     }
-
 
     @Test
     void testGetAllEmails() {

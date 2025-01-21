@@ -7,12 +7,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import static org.mockito.Mockito.*;
 
-public class SharedControllerTest {
+class SharedControllerTest {
 
     @Mock
     private SharedUIController sharedUIController;
@@ -29,19 +27,19 @@ public class SharedControllerTest {
     }
 
     @Test
-    public void testOpenFeedbackForm() {
+    void testOpenFeedbackForm() {
         sharedController.openFeedbackForm(actionEvent);
         verify(sharedUIController, times(1)).openFeedbackForm(actionEvent);
     }
 
     @Test
-    public void testOpenStatusPage() {
+    void testOpenStatusPage() {
         sharedController.openStatusPage(actionEvent);
         verify(sharedUIController, times(1)).openStatusPage(actionEvent);
     }
 
     @Test
-    public void testOpenStartPage() {
+    void testOpenStartPage() {
         sharedController.openStartPage(actionEvent);
         verify(sharedUIController, times(1)).openStartPage(actionEvent);
     }

@@ -2,8 +2,6 @@ package feedback.infrastructure.repository;
 
 import feedback.domain.model.Feedback;
 import org.springframework.stereotype.Repository;
-
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
@@ -32,17 +31,14 @@ public class SharedUIController {
     @FXML
     private ToggleButton statusButton;
 
-
     @Autowired
     private ApplicationContext context;
-
 
     @FXML
     public void openStartPage(ActionEvent event) {
         setSelectedButton(startButton);
         loadPage(event, "/fxml/start-page.fxml", "Startseite");
     }
-
 
     // Methode zum Öffnen des Feedback-Formulars
     @FXML
@@ -56,7 +52,6 @@ public class SharedUIController {
     public void openStatusPage(ActionEvent event) {
         setSelectedButton(statusButton);
         loadPage(event, "/fxml/status-page.fxml", "Statusseite");
-
     }
 
     // Styling der Button, wenn selektiert
@@ -91,8 +86,5 @@ public class SharedUIController {
             logger.error("Ungültiges Event-Objekt: {}", e.getMessage(), e);
 
         }
-
     }
-
-
 }

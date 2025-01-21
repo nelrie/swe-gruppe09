@@ -1,15 +1,18 @@
 package feedback.exceptions.validation;
 
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 //Klasse, um eine kürzere UUID zu generieren
 public class IdGenerator {
+    private static final Logger logger = LoggerFactory.getLogger(IdGenerator.class);
+
     public static String generateShortUuid() {
         UUID uuid = UUID.randomUUID();
-        System.out.println("ID: " + uuid);
+
+        logger.info("ID: {}", uuid);
+
         return uuid.toString().substring(0, 8);
-        //String uuid = "12345678";
-        //System.out.println("ID: " + uuid);
-        //return uuid;
     }
 }

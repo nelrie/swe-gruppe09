@@ -14,7 +14,7 @@ class InputValidatorTest {
         assertFalse(InputValidator.isValidName(""));
 
         //Testen der Randfälle:
-        
+
         assertFalse(InputValidator.isValidName("  "));
         assertFalse(InputValidator.isValidName("@"));
         assertFalse(InputValidator.isValidName("%*#"));
@@ -23,8 +23,8 @@ class InputValidatorTest {
         assertTrue(InputValidator.isValidName("Straße"));
         assertFalse(InputValidator.isValidName(" Lisa"));
         assertFalse(InputValidator.isValidName("Lisa "));
-        
     }
+
     @Test
     void testValidLastName() {
         assertTrue(InputValidator.isValidName("Umlauf"));
@@ -59,6 +59,5 @@ class InputValidatorTest {
         assertFalse(InputValidator.isValidEmail(""));
         assertFalse(InputValidator.isValidEmail(" john.doe@example.com"));
         assertFalse(InputValidator.isValidEmail("john.doe@example.com "));
-
     }
 }
